@@ -1,0 +1,587 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96890F9B2C8EFDC1008330A4 /* VoidVanguardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890F9A2C8EFDC1008330A4 /* VoidVanguardApp.swift */; };
+		96890F9D2C8EFDC1008330A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890F9C2C8EFDC1008330A4 /* ContentView.swift */; };
+		96890F9F2C8EFDC2008330A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96890F9E2C8EFDC2008330A4 /* Assets.xcassets */; };
+		96890FA22C8EFDC2008330A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96890FA12C8EFDC2008330A4 /* Preview Assets.xcassets */; };
+		96890FAC2C8EFDC3008330A4 /* VoidVanguardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890FAB2C8EFDC3008330A4 /* VoidVanguardTests.swift */; };
+		96890FB62C8EFDC3008330A4 /* VoidVanguardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890FB52C8EFDC3008330A4 /* VoidVanguardUITests.swift */; };
+		96890FB82C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890FB72C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		96890FA82C8EFDC3008330A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96890F8F2C8EFDC1008330A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96890F962C8EFDC1008330A4;
+			remoteInfo = VoidVanguard;
+		};
+		96890FB22C8EFDC3008330A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 96890F8F2C8EFDC1008330A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 96890F962C8EFDC1008330A4;
+			remoteInfo = VoidVanguard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		96890F972C8EFDC1008330A4 /* VoidVanguard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoidVanguard.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		96890F9A2C8EFDC1008330A4 /* VoidVanguardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidVanguardApp.swift; sourceTree = "<group>"; };
+		96890F9C2C8EFDC1008330A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		96890F9E2C8EFDC2008330A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		96890FA12C8EFDC2008330A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		96890FA72C8EFDC3008330A4 /* VoidVanguardTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoidVanguardTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96890FAB2C8EFDC3008330A4 /* VoidVanguardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidVanguardTests.swift; sourceTree = "<group>"; };
+		96890FB12C8EFDC3008330A4 /* VoidVanguardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoidVanguardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		96890FB52C8EFDC3008330A4 /* VoidVanguardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidVanguardUITests.swift; sourceTree = "<group>"; };
+		96890FB72C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidVanguardUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96890F942C8EFDC1008330A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96890FA42C8EFDC3008330A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96890FAE2C8EFDC3008330A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96890F8E2C8EFDC1008330A4 = {
+			isa = PBXGroup;
+			children = (
+				96890F992C8EFDC1008330A4 /* VoidVanguard */,
+				96890FAA2C8EFDC3008330A4 /* VoidVanguardTests */,
+				96890FB42C8EFDC3008330A4 /* VoidVanguardUITests */,
+				96890F982C8EFDC1008330A4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		96890F982C8EFDC1008330A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96890F972C8EFDC1008330A4 /* VoidVanguard.app */,
+				96890FA72C8EFDC3008330A4 /* VoidVanguardTests.xctest */,
+				96890FB12C8EFDC3008330A4 /* VoidVanguardUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96890F992C8EFDC1008330A4 /* VoidVanguard */ = {
+			isa = PBXGroup;
+			children = (
+				96890F9A2C8EFDC1008330A4 /* VoidVanguardApp.swift */,
+				96890F9C2C8EFDC1008330A4 /* ContentView.swift */,
+				96890F9E2C8EFDC2008330A4 /* Assets.xcassets */,
+				96890FA02C8EFDC2008330A4 /* Preview Content */,
+			);
+			path = VoidVanguard;
+			sourceTree = "<group>";
+		};
+		96890FA02C8EFDC2008330A4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				96890FA12C8EFDC2008330A4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		96890FAA2C8EFDC3008330A4 /* VoidVanguardTests */ = {
+			isa = PBXGroup;
+			children = (
+				96890FAB2C8EFDC3008330A4 /* VoidVanguardTests.swift */,
+			);
+			path = VoidVanguardTests;
+			sourceTree = "<group>";
+		};
+		96890FB42C8EFDC3008330A4 /* VoidVanguardUITests */ = {
+			isa = PBXGroup;
+			children = (
+				96890FB52C8EFDC3008330A4 /* VoidVanguardUITests.swift */,
+				96890FB72C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift */,
+			);
+			path = VoidVanguardUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		96890F962C8EFDC1008330A4 /* VoidVanguard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96890FBB2C8EFDC3008330A4 /* Build configuration list for PBXNativeTarget "VoidVanguard" */;
+			buildPhases = (
+				96890F932C8EFDC1008330A4 /* Sources */,
+				96890F942C8EFDC1008330A4 /* Frameworks */,
+				96890F952C8EFDC1008330A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VoidVanguard;
+			productName = VoidVanguard;
+			productReference = 96890F972C8EFDC1008330A4 /* VoidVanguard.app */;
+			productType = "com.apple.product-type.application";
+		};
+		96890FA62C8EFDC3008330A4 /* VoidVanguardTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96890FBE2C8EFDC3008330A4 /* Build configuration list for PBXNativeTarget "VoidVanguardTests" */;
+			buildPhases = (
+				96890FA32C8EFDC3008330A4 /* Sources */,
+				96890FA42C8EFDC3008330A4 /* Frameworks */,
+				96890FA52C8EFDC3008330A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96890FA92C8EFDC3008330A4 /* PBXTargetDependency */,
+			);
+			name = VoidVanguardTests;
+			productName = VoidVanguardTests;
+			productReference = 96890FA72C8EFDC3008330A4 /* VoidVanguardTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		96890FB02C8EFDC3008330A4 /* VoidVanguardUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96890FC12C8EFDC3008330A4 /* Build configuration list for PBXNativeTarget "VoidVanguardUITests" */;
+			buildPhases = (
+				96890FAD2C8EFDC3008330A4 /* Sources */,
+				96890FAE2C8EFDC3008330A4 /* Frameworks */,
+				96890FAF2C8EFDC3008330A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				96890FB32C8EFDC3008330A4 /* PBXTargetDependency */,
+			);
+			name = VoidVanguardUITests;
+			productName = VoidVanguardUITests;
+			productReference = 96890FB12C8EFDC3008330A4 /* VoidVanguardUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96890F8F2C8EFDC1008330A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					96890F962C8EFDC1008330A4 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+					96890FA62C8EFDC3008330A4 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 96890F962C8EFDC1008330A4;
+					};
+					96890FB02C8EFDC3008330A4 = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 96890F962C8EFDC1008330A4;
+					};
+				};
+			};
+			buildConfigurationList = 96890F922C8EFDC1008330A4 /* Build configuration list for PBXProject "VoidVanguard" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 96890F8E2C8EFDC1008330A4;
+			productRefGroup = 96890F982C8EFDC1008330A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96890F962C8EFDC1008330A4 /* VoidVanguard */,
+				96890FA62C8EFDC3008330A4 /* VoidVanguardTests */,
+				96890FB02C8EFDC3008330A4 /* VoidVanguardUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		96890F952C8EFDC1008330A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96890FA22C8EFDC2008330A4 /* Preview Assets.xcassets in Resources */,
+				96890F9F2C8EFDC2008330A4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96890FA52C8EFDC3008330A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96890FAF2C8EFDC3008330A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96890F932C8EFDC1008330A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96890F9D2C8EFDC1008330A4 /* ContentView.swift in Sources */,
+				96890F9B2C8EFDC1008330A4 /* VoidVanguardApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96890FA32C8EFDC3008330A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96890FAC2C8EFDC3008330A4 /* VoidVanguardTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		96890FAD2C8EFDC3008330A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96890FB82C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift in Sources */,
+				96890FB62C8EFDC3008330A4 /* VoidVanguardUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		96890FA92C8EFDC3008330A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96890F962C8EFDC1008330A4 /* VoidVanguard */;
+			targetProxy = 96890FA82C8EFDC3008330A4 /* PBXContainerItemProxy */;
+		};
+		96890FB32C8EFDC3008330A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 96890F962C8EFDC1008330A4 /* VoidVanguard */;
+			targetProxy = 96890FB22C8EFDC3008330A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		96890FB92C8EFDC3008330A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		96890FBA2C8EFDC3008330A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		96890FBC2C8EFDC3008330A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VoidVanguard/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "SyntaxInstitut.My-App.VoidVanguard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96890FBD2C8EFDC3008330A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"VoidVanguard/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "SyntaxInstitut.My-App.VoidVanguard";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		96890FBF2C8EFDC3008330A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "SyntaxInstitut.My-App.VoidVanguardTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoidVanguard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VoidVanguard";
+			};
+			name = Debug;
+		};
+		96890FC02C8EFDC3008330A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "SyntaxInstitut.My-App.VoidVanguardTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VoidVanguard.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/VoidVanguard";
+			};
+			name = Release;
+		};
+		96890FC22C8EFDC3008330A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "SyntaxInstitut.My-App.VoidVanguardUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VoidVanguard;
+			};
+			name = Debug;
+		};
+		96890FC32C8EFDC3008330A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "SyntaxInstitut.My-App.VoidVanguardUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = VoidVanguard;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96890F922C8EFDC1008330A4 /* Build configuration list for PBXProject "VoidVanguard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96890FB92C8EFDC3008330A4 /* Debug */,
+				96890FBA2C8EFDC3008330A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96890FBB2C8EFDC3008330A4 /* Build configuration list for PBXNativeTarget "VoidVanguard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96890FBC2C8EFDC3008330A4 /* Debug */,
+				96890FBD2C8EFDC3008330A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96890FBE2C8EFDC3008330A4 /* Build configuration list for PBXNativeTarget "VoidVanguardTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96890FBF2C8EFDC3008330A4 /* Debug */,
+				96890FC02C8EFDC3008330A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96890FC12C8EFDC3008330A4 /* Build configuration list for PBXNativeTarget "VoidVanguardUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96890FC22C8EFDC3008330A4 /* Debug */,
+				96890FC32C8EFDC3008330A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 96890F8F2C8EFDC1008330A4 /* Project object */;
+}
