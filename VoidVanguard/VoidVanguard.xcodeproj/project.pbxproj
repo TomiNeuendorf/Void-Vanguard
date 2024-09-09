@@ -14,6 +14,7 @@
 		96890FAC2C8EFDC3008330A4 /* VoidVanguardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890FAB2C8EFDC3008330A4 /* VoidVanguardTests.swift */; };
 		96890FB62C8EFDC3008330A4 /* VoidVanguardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890FB52C8EFDC3008330A4 /* VoidVanguardUITests.swift */; };
 		96890FB82C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890FB72C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift */; };
+		96890FC62C8EFE1F008330A4 /* Void Vanguard .png in Resources */ = {isa = PBXBuildFile; fileRef = 96890FC52C8EFE1F008330A4 /* Void Vanguard .png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		96890FB12C8EFDC3008330A4 /* VoidVanguardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VoidVanguardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96890FB52C8EFDC3008330A4 /* VoidVanguardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidVanguardUITests.swift; sourceTree = "<group>"; };
 		96890FB72C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidVanguardUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		96890FC52C8EFE1F008330A4 /* Void Vanguard .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Void Vanguard .png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		96890F8E2C8EFDC1008330A4 = {
 			isa = PBXGroup;
 			children = (
+				96890FC42C8EFE0D008330A4 /* image */,
 				96890F992C8EFDC1008330A4 /* VoidVanguard */,
 				96890FAA2C8EFDC3008330A4 /* VoidVanguardTests */,
 				96890FB42C8EFDC3008330A4 /* VoidVanguardUITests */,
@@ -125,6 +128,14 @@
 				96890FB72C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift */,
 			);
 			path = VoidVanguardUITests;
+			sourceTree = "<group>";
+		};
+		96890FC42C8EFE0D008330A4 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				96890FC52C8EFE1F008330A4 /* Void Vanguard .png */,
+			);
+			path = image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +244,7 @@
 			files = (
 				96890FA22C8EFDC2008330A4 /* Preview Assets.xcassets in Resources */,
 				96890F9F2C8EFDC2008330A4 /* Assets.xcassets in Resources */,
+				96890FC62C8EFE1F008330A4 /* Void Vanguard .png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
