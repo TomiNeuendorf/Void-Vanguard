@@ -10,7 +10,7 @@ As part of an elite unit, you fight against hostile alien armadas and navigate d
 With fast-paced combat, epic boss battles, and a wide variety of upgrades, you're in for an adventure full of excitement and strategy.  
 
 <p align="center">
-  <img src="Void Vanguard/image/VoidVanguard.png" width="200">
+  <img src="VoidVanguard/image/Void Vanguard .png" width="200">
 </p>
 
 
