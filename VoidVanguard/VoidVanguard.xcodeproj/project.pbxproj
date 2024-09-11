@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		968414222C90505600D25FA0 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 968414202C90505600D25FA0 /* Explosion.sks */; };
+		968414232C90505600D25FA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968414212C90505600D25FA0 /* Assets.xcassets */; };
+		968414252C91A69D00D25FA0 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968414242C91A69D00D25FA0 /* HomeScreen.swift */; };
 		96890F9B2C8EFDC1008330A4 /* VoidVanguardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890F9A2C8EFDC1008330A4 /* VoidVanguardApp.swift */; };
 		96890F9D2C8EFDC1008330A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890F9C2C8EFDC1008330A4 /* ContentView.swift */; };
 		96890F9F2C8EFDC2008330A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96890F9E2C8EFDC2008330A4 /* Assets.xcassets */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		968414202C90505600D25FA0 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
+		968414212C90505600D25FA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		968414242C91A69D00D25FA0 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		96890F972C8EFDC1008330A4 /* VoidVanguard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VoidVanguard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		96890F9A2C8EFDC1008330A4 /* VoidVanguardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidVanguardApp.swift; sourceTree = "<group>"; };
 		96890F9C2C8EFDC1008330A4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -76,6 +82,7 @@
 		96890F8E2C8EFDC1008330A4 = {
 			isa = PBXGroup;
 			children = (
+				968414212C90505600D25FA0 /* Assets.xcassets */,
 				96890FC42C8EFE0D008330A4 /* image */,
 				96890F992C8EFDC1008330A4 /* VoidVanguard */,
 				96890FAA2C8EFDC3008330A4 /* VoidVanguardTests */,
@@ -97,8 +104,10 @@
 		96890F992C8EFDC1008330A4 /* VoidVanguard */ = {
 			isa = PBXGroup;
 			children = (
+				968414242C91A69D00D25FA0 /* HomeScreen.swift */,
 				96890F9A2C8EFDC1008330A4 /* VoidVanguardApp.swift */,
 				96890F9C2C8EFDC1008330A4 /* ContentView.swift */,
+				968414202C90505600D25FA0 /* Explosion.sks */,
 				96890F9E2C8EFDC2008330A4 /* Assets.xcassets */,
 				96890FA02C8EFDC2008330A4 /* Preview Content */,
 			);
@@ -243,6 +252,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				96890FA22C8EFDC2008330A4 /* Preview Assets.xcassets in Resources */,
+				968414222C90505600D25FA0 /* Explosion.sks in Resources */,
+				968414232C90505600D25FA0 /* Assets.xcassets in Resources */,
 				96890F9F2C8EFDC2008330A4 /* Assets.xcassets in Resources */,
 				96890FC62C8EFE1F008330A4 /* Void Vanguard .png in Resources */,
 			);
@@ -271,6 +282,7 @@
 			files = (
 				96890F9D2C8EFDC1008330A4 /* ContentView.swift in Sources */,
 				96890F9B2C8EFDC1008330A4 /* VoidVanguardApp.swift in Sources */,
+				968414252C91A69D00D25FA0 /* HomeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
