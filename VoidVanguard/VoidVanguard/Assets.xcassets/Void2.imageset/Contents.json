@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "space2.png",
+      "filename" : "Void4.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "space2 1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "space3.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
