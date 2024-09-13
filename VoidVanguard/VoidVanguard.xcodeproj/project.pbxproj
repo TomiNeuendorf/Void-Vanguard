@@ -18,6 +18,7 @@
 		96890FB62C8EFDC3008330A4 /* VoidVanguardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890FB52C8EFDC3008330A4 /* VoidVanguardUITests.swift */; };
 		96890FB82C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890FB72C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift */; };
 		96890FC62C8EFE1F008330A4 /* Void Vanguard .png in Resources */ = {isa = PBXBuildFile; fileRef = 96890FC52C8EFE1F008330A4 /* Void Vanguard .png */; };
+		96E00B4F2C94427F004257CD /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B4E2C94427F004257CD /* GameScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		96890FB52C8EFDC3008330A4 /* VoidVanguardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidVanguardUITests.swift; sourceTree = "<group>"; };
 		96890FB72C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidVanguardUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		96890FC52C8EFE1F008330A4 /* Void Vanguard .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Void Vanguard .png"; sourceTree = "<group>"; };
+		96E00B4E2C94427F004257CD /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +106,7 @@
 		96890F992C8EFDC1008330A4 /* VoidVanguard */ = {
 			isa = PBXGroup;
 			children = (
-				968414242C91A69D00D25FA0 /* HomeScreen.swift */,
+				96E00B4D2C94419E004257CD /* Views */,
 				96890F9A2C8EFDC1008330A4 /* VoidVanguardApp.swift */,
 				96890F9C2C8EFDC1008330A4 /* ContentView.swift */,
 				968414202C90505600D25FA0 /* Explosion.sks */,
@@ -145,6 +147,15 @@
 				96890FC52C8EFE1F008330A4 /* Void Vanguard .png */,
 			);
 			path = image;
+			sourceTree = "<group>";
+		};
+		96E00B4D2C94419E004257CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				968414242C91A69D00D25FA0 /* HomeScreen.swift */,
+				96E00B4E2C94427F004257CD /* GameScene.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,6 +293,7 @@
 			files = (
 				96890F9D2C8EFDC1008330A4 /* ContentView.swift in Sources */,
 				96890F9B2C8EFDC1008330A4 /* VoidVanguardApp.swift in Sources */,
+				96E00B4F2C94427F004257CD /* GameScene.swift in Sources */,
 				968414252C91A69D00D25FA0 /* HomeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

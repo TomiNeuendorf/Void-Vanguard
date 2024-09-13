@@ -8,7 +8,7 @@ struct SpaceBackground: UIViewRepresentable {
         scene.scaleMode = .resizeFill
         
         // Static space background
-        let background = SKSpriteNode(imageNamed: "Void2")
+        let background = SKSpriteNode(imageNamed: "Void")
         background.position = CGPoint(x: scene.size.width / 2, y: scene.size.height / 2)
         background.zPosition = -1
         
