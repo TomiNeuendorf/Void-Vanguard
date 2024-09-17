@@ -17,7 +17,6 @@ struct SpaceBackground: UIViewRepresentable {
         background.size = CGSize(width: scene.size.height * aspectRatio, height: scene.size.height)
         
         scene.addChild(background)
-        
         view.presentScene(scene)
         return view
     }

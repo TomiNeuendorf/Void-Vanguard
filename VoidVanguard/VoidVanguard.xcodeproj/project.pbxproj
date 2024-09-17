@@ -19,6 +19,7 @@
 		96890FB82C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96890FB72C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift */; };
 		96890FC62C8EFE1F008330A4 /* Void Vanguard .png in Resources */ = {isa = PBXBuildFile; fileRef = 96890FC52C8EFE1F008330A4 /* Void Vanguard .png */; };
 		96E00B4F2C94427F004257CD /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B4E2C94427F004257CD /* GameScene.swift */; };
+		96E00B512C99A62A004257CD /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B502C99A62A004257CD /* SettingsScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		96890FB72C8EFDC3008330A4 /* VoidVanguardUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidVanguardUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		96890FC52C8EFE1F008330A4 /* Void Vanguard .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Void Vanguard .png"; sourceTree = "<group>"; };
 		96E00B4E2C94427F004257CD /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		96E00B502C99A62A004257CD /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 		96E00B4D2C94419E004257CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				96E00B502C99A62A004257CD /* SettingsScreen.swift */,
 				968414242C91A69D00D25FA0 /* HomeScreen.swift */,
 				96E00B4E2C94427F004257CD /* GameScene.swift */,
 			);
@@ -294,6 +297,7 @@
 				96890F9D2C8EFDC1008330A4 /* ContentView.swift in Sources */,
 				96890F9B2C8EFDC1008330A4 /* VoidVanguardApp.swift in Sources */,
 				96E00B4F2C94427F004257CD /* GameScene.swift in Sources */,
+				96E00B512C99A62A004257CD /* SettingsScreen.swift in Sources */,
 				968414252C91A69D00D25FA0 /* HomeScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

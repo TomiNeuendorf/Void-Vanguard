@@ -4,7 +4,6 @@
 //
 //  Created by Tomi Neuendorf on 13.09.24.
 //
-
 import SpriteKit
 import GameKit
 import SwiftUI
@@ -26,6 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var bossOne = SKSpriteNode()
     var bossOneFire = SKSpriteNode()
     var bossOneFireTimer = Timer()
+    var bossOneLives = 25
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
@@ -88,8 +88,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.isDynamic = true
         player.physicsBody?.categoryBitMask = CBitmask.playerShip
-        player.physicsBody?.contactTestBitMask = CBitmask.enemyShip
-        player.physicsBody?.collisionBitMask = CBitmask.enemyShip
+        player.physicsBody?.contactTestBitMask = CBitmask.enemyShip | CBitmask.bossOneFire
+        player.physicsBody?.collisionBitMask = CBitmask.enemyShip | CBitmask.bossOneFire
         addChild(player)
     }
     
@@ -104,33 +104,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bossOne.physicsBody?.contactTestBitMask = CBitmask.playerShip | CBitmask.playerFire
         bossOne.physicsBody?.collisionBitMask = CBitmask.playerFire
         
-        
         let move1 = SKAction.moveTo(y: size.height / 1.3, duration: 2)
         let move2 = SKAction.moveTo(x: size.width - bossOne.size.width, duration: 2)
         let move3 = SKAction.moveTo(x: 0 + bossOne.size.width, duration: 2)
         let move4 = SKAction.moveTo(x: size.width / 2, duration: 1.5)
-        let move5 = SKAction.fadeOut(withDuration: 0.2)
-        let move6 = SKAction.fadeIn(withDuration: 0.2)
         let move7 = SKAction.moveTo(y: 0 + bossOne.size.height, duration: 2)
         let move8 = SKAction.moveTo(y: size.height / 1.3, duration: 2)
         
-        let action = SKAction.repeat(SKAction.sequence([move5,move6]), count: 6)
-        let repeatforever = SKAction.repeatForever(SKAction.sequence([move2,move3,move4,action,move7,move8]))
+        let repeatforever = SKAction.repeatForever(SKAction.sequence([move2,move3,move4,move7,move8]))
         let sequence = SKAction.sequence([move1,repeatforever])
         
         bossOne.run(sequence)
         addChild(bossOne)
     }
     
-    @objc func bossOneFireFunc(){
+    @objc func bossOneFireFunc() {
         bossOneFire = .init(imageNamed: "missile")
         bossOneFire.position = bossOne.position
         bossOneFire.zPosition = 5
         bossOneFire.setScale(1.5)
+        bossOneFire.physicsBody = SKPhysicsBody(rectangleOf: bossOneFire.size)
+        bossOneFire.physicsBody?.affectedByGravity = false
+        bossOneFire.physicsBody?.categoryBitMask = CBitmask.bossOneFire
+        bossOneFire.physicsBody?.contactTestBitMask = CBitmask.playerShip
+        bossOneFire.physicsBody?.collisionBitMask = CBitmask.playerShip
         
         let move1 = SKAction.moveTo(y: 0 - bossOneFire.size.height, duration: 1.5)
         let removeAction = SKAction.removeFromParent()
-        let sequence = SKAction.sequence([move1,removeAction])
+        let sequence = SKAction.sequence([move1, removeAction])
         bossOneFire.run(sequence)
         
         addChild(bossOneFire)
@@ -180,6 +181,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         static let playerFire: UInt32 = 0b10
         static let enemyShip: UInt32 = 0b100
         static let bossOne: UInt32 = 0b1000
+        static let bossOneFire: UInt32 = 0b10000
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -199,17 +201,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player.run(SKAction.repeat(SKAction.sequence([SKAction.fadeOut(withDuration: 0.1), SKAction.fadeIn(withDuration: 0.1)]), count: 8))
             contactB.node?.removeFromParent()
             
-            if let live1 = childNode(withName: "live1") {
-                live1.removeFromParent()
-            } else if let live2 = childNode(withName: "live2") {
-                live2.removeFromParent()
-            } else if let live3 = childNode(withName: "live3") {
-                live3.removeFromParent()
-                player.removeFromParent()
-                fireTimer.invalidate()
-                enemyTimer.invalidate()
-                gameOverFunc()
-            }
+            reducePlayerLife()
         }
         
         // Player fire hits enemy ship
@@ -223,20 +215,44 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        // Player fire hits boss
+        // Player fire hits the boss
         if contactA.categoryBitMask == CBitmask.playerFire && contactB.categoryBitMask == CBitmask.bossOne {
             let explosion = SKEmitterNode(fileNamed: "Explosion")
             explosion?.position = contactB.node!.position
             explosion?.zPosition = 5
+            explosion?.setScale(2)
             addChild(explosion!)
             
-            // Remove player fire
             contactA.node?.removeFromParent()
+            bossOneLives -= 1
             
-            // Optional: You may want to decrease boss health or remove the boss after a certain number of hits
+            if bossOneLives == 0 {
+                contactB.node?.removeFromParent()
+                bossOneFireTimer.invalidate()
+                enemyTimer = .scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(makeEnemys), userInfo: nil, repeats: true)
+            }
+        }
+       
+        if contactA.categoryBitMask == CBitmask.playerShip && contactB.categoryBitMask == CBitmask.bossOneFire {
+              // Player gets hit by boss fire
+              contactB.node?.removeFromParent() // Remove the boss fire
+              reducePlayerLife()
+          }
+      }
+    
+    func reducePlayerLife() {
+        if let live1 = childNode(withName: "live1") {
+            live1.removeFromParent()
+        } else if let live2 = childNode(withName: "live2") {
+            live2.removeFromParent()
+        } else if let live3 = childNode(withName: "live3") {
+            live3.removeFromParent()
+            player.removeFromParent()
+            fireTimer.invalidate()
+            enemyTimer.invalidate()
+            gameOverFunc()
         }
     }
-
     
     func playerFireHitEnemy(fires: SKSpriteNode, enemys: SKSpriteNode) {
         fires.removeFromParent()
@@ -275,6 +291,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gameOverFunc() {
         removeAllChildren()
         gameState?.gameOver = true // Notify SwiftUI that the game is over
-        
     }
 }
