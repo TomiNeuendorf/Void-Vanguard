@@ -234,7 +234,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
        
         if contactA.categoryBitMask == CBitmask.playerShip && contactB.categoryBitMask == CBitmask.bossOneFire {
-              // Player gets hit by boss fire
+            let explosion = SKEmitterNode(fileNamed: "Explosion")
+            explosion?.position = contactB.node!.position
+            explosion?.zPosition = 5
+            explosion?.setScale(2)
+            addChild(explosion!)
+            // Player gets hit by boss fire
               contactB.node?.removeFromParent() // Remove the boss fire
               reducePlayerLife()
           }
