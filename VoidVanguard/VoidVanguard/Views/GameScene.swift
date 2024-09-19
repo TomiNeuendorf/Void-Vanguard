@@ -13,8 +13,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Use an external game state
     var gameState: GameState? // Reference to GameState
     
-    let background1 = SKSpriteNode(imageNamed: "Background-1")
-    let background2 = SKSpriteNode(imageNamed: "Background-1")
+    let background1 = SKSpriteNode(imageNamed: "background5")
+    let background2 = SKSpriteNode(imageNamed: "background5")
     
     var player = SKSpriteNode()
     var fireTimer = Timer()
@@ -36,7 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         makePlayer(playerShip: 1)
         
         fireTimer = .scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(playerFireFunction), userInfo: nil, repeats: true)
-        enemyTimer = .scheduledTimer(timeInterval: 1, target: self, selector: #selector(makeEnemys), userInfo: nil, repeats: true)
+        enemyTimer = .scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(makeEnemy), userInfo: nil, repeats: true)
         
         scoreLabel.text = "Score: \(score)"
         scoreLabel.fontName = "Chalkduster"
@@ -129,7 +129,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bossOneFire.physicsBody?.contactTestBitMask = CBitmask.playerShip
         bossOneFire.physicsBody?.collisionBitMask = CBitmask.playerShip
         
-        let move1 = SKAction.moveTo(y: 0 - bossOneFire.size.height, duration: 1.5)
+        let move1 = SKAction.moveTo(y: 0 - bossOneFire.size.height, duration: 1.0)
         let removeAction = SKAction.removeFromParent()
         let sequence = SKAction.sequence([move1, removeAction])
         bossOneFire.run(sequence)
@@ -141,6 +141,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let playerFire = SKSpriteNode(imageNamed: "shot")
         playerFire.position = player.position
         playerFire.zPosition = 2
+        playerFire.setScale(1.5)
         playerFire.physicsBody = SKPhysicsBody(rectangleOf: playerFire.size)
         playerFire.physicsBody?.affectedByGravity = false
         playerFire.physicsBody?.categoryBitMask = CBitmask.playerFire
@@ -155,7 +156,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerFire.run(combine)
     }
     
-    @objc func makeEnemys() {
+    @objc func makeEnemy() {
         let randomNumber = GKRandomDistribution(lowestValue: 50, highestValue: 700)
         
         let enemy = SKSpriteNode(imageNamed: "enemyShip_1")
@@ -169,7 +170,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.physicsBody?.collisionBitMask = CBitmask.playerFire
         addChild(enemy)
         
-        let moveAction = SKAction.moveTo(y: -100, duration: 3.5)
+        let moveAction = SKAction.moveTo(y: -100, duration: 1.3)
         let delateAction = SKAction.removeFromParent()
         let combine = SKAction.sequence([moveAction, delateAction])
         
@@ -208,7 +209,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if contactA.categoryBitMask == CBitmask.playerFire && contactB.categoryBitMask == CBitmask.enemyShip {
             playerFireHitEnemy(fires: contactA.node as! SKSpriteNode, enemys: contactB.node as! SKSpriteNode)
             updateScore()
-            if score == 50 {
+            if score == 200 {
                 makeBossOne()
                 enemyTimer.invalidate()
                 bossOneFireTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(bossOneFireFunc), userInfo: nil, repeats: true)
@@ -229,7 +230,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if bossOneLives == 0 {
                 contactB.node?.removeFromParent()
                 bossOneFireTimer.invalidate()
-                enemyTimer = .scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(makeEnemys), userInfo: nil, repeats: true)
+                enemyTimer = .scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(makeEnemy), userInfo: nil, repeats: true)
             }
         }
        
@@ -296,5 +297,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gameOverFunc() {
         removeAllChildren()
         gameState?.gameOver = true // Notify SwiftUI that the game is over
+        
     }
 }

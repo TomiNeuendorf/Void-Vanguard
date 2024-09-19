@@ -45,63 +45,72 @@ struct CustomButtonStyle: ButtonStyle {
 }
 
 struct HomeScreen: View {
+    @EnvironmentObject var settings: SettingsViewModel
+    
     var body: some View {
-        NavigationView {
-            ZStack {
-                // Static space background
-                SpaceBackground()
+        ZStack {
+            // Use the selected background image
+            if let image = settings.selectedBackgroundImage {
+                Image(uiImage:image)
+                    .resizable()
+                    .scaledToFill()
                     .ignoresSafeArea()
+            }
+            
+            VStack {
+                // Title
+                Text("Void Vanguard")
+                    .font(.custom("Chalkduster", size: 40))
+                    .foregroundColor(.white)
+                    .shadow(color: .purple, radius: 5)
+                    .padding()
                 
-                VStack {
+                Spacer()
+                
+                // Start Game button
+                NavigationLink(destination: ContentView().navigationBarHidden(true).navigationBarBackButtonHidden(true)) {
+                    Text("Start Game")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                }
+                .buttonStyle(CustomButtonStyle())
+                .padding(.bottom, 50)
+                
+                HStack {
+                    Button("Ships") {
+                        // Add action for Ships
+                    }
+                    .buttonStyle(CustomButtonStyle())
+                    .padding()
                     
-                    // Title text with a glowing effect
-                    Text("Void Vanguard")
-                        .font(.custom("Chalkduster", size: 40))
-                        .foregroundColor(.white)
-                        .shadow(color: .purple, radius: 5)
-                        .padding()
+                    Button("H-Scores") {
+                        // Add action for HighScores
+                    }
+                    .buttonStyle(CustomButtonStyle())
+                    .padding()
                     
-                    Spacer()
-                    
-                    // Start Game button with custom style
-                    NavigationLink(destination: ContentView().navigationBarHidden(true).navigationBarBackButtonHidden(true)) {
-                        Text("Start Game")
+                    NavigationLink(destination: SettingsScreen()
+                        .environmentObject(settings)
+                    ) {
+                        Text("Settings")
                             .font(.headline)
                             .fontWeight(.bold)
                     }
-                    .buttonStyle(CustomButtonStyle())
-                    .padding(.bottom, 50)
-                    
-                    HStack {
-                        // Ships Button
-                        Button("Ships") {
-                            // Add action for Ships
-                        }
-                        .buttonStyle(CustomButtonStyle())
-                        .padding()
-                        
-                        // HighScores Button
-                        Button("H-Scores") {
-                            // Add action for HighScores
-                        }
-                        .buttonStyle(CustomButtonStyle())
-                        .padding()
-                        
-                        // Settings Button
-                        Button("Settings") {
-                            // Add action for Settings
-                        }
-                        .buttonStyle(CustomButtonStyle())
-                        .padding()
-                    }
                     
                 }
+                .buttonStyle(CustomButtonStyle())
+                .padding()
             }
         }
     }
 }
 
 #Preview {
-    HomeScreen()
+    NavigationStack{
+        HomeScreen()
+            .environmentObject(SettingsViewModel())
+    }
+    
+    
 }
 

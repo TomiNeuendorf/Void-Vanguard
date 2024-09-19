@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct VoidVanguardApp: App {
+    @StateObject var settings = SettingsViewModel()
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(settings)
         }
     }
 }
