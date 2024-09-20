@@ -1,5 +1,6 @@
 import SwiftUI
 import SpriteKit
+import AVFoundation
 
 struct SpaceBackground: UIViewRepresentable {
     func makeUIView(context: Context) -> SKView {
@@ -24,38 +25,14 @@ struct SpaceBackground: UIViewRepresentable {
     func updateUIView(_ uiView: SKView, context: Context) {}
 }
 
-struct CustomButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .padding()
-            .background(
-                LinearGradient(gradient: Gradient(colors: [Color.purple, Color.black]),
-                               startPoint: .topLeading,
-                               endPoint: .bottomTrailing)
-            )
-            .cornerRadius(15)
-            .overlay(
-                RoundedRectangle(cornerRadius: 15)
-                    .stroke(Color.black, lineWidth: 5)
-            )
-            .foregroundColor(.white)
-            .shadow(color: .purple, radius: configuration.isPressed ? 10 : 5)
-            .scaleEffect(configuration.isPressed ? 0.9 : 1.0)
-    }
-}
-
 struct HomeScreen: View {
-    @EnvironmentObject var settings: SettingsViewModel
-    
     var body: some View {
         ZStack {
-            // Use the selected background image
-            if let image = settings.selectedBackgroundImage {
-                Image(uiImage:image)
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea()
-            }
+            // Use the selected background image or fallback to a default background
+            Image("Void") // Default background image
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
             
             VStack {
                 // Title
@@ -77,26 +54,25 @@ struct HomeScreen: View {
                 .padding(.bottom, 50)
                 
                 HStack {
-                    Button("Ships") {
-                        // Add action for Ships
+                    NavigationLink(destination: PlayerShipsScreen()) {
+                        Text("Ships")
+                            .font(.headline)
+                            .fontWeight(.bold)
                     }
                     .buttonStyle(CustomButtonStyle())
                     .padding()
                     
                     Button("H-Scores") {
-                        // Add action for HighScores
+                        // Action for HighScores
                     }
                     .buttonStyle(CustomButtonStyle())
                     .padding()
                     
-                    NavigationLink(destination: SettingsScreen()
-                        .environmentObject(settings)
-                    ) {
+                    NavigationLink(destination: SettingsScreen()) {
                         Text("Settings")
                             .font(.headline)
                             .fontWeight(.bold)
                     }
-                    
                 }
                 .buttonStyle(CustomButtonStyle())
                 .padding()
@@ -106,11 +82,9 @@ struct HomeScreen: View {
 }
 
 #Preview {
-    NavigationStack{
+    NavigationStack {
         HomeScreen()
-            .environmentObject(SettingsViewModel())
     }
-    
-    
 }
+
 

@@ -1,10 +1,3 @@
-//
-//  ImagePicker.swift
-//  VoidVanguard
-//
-//  Created by Tomi Neuendorf on 18.09.24.
-//
-
 import SwiftUI
 import UIKit
 

@@ -23,9 +23,8 @@
 		96E00B552C9AE5F9004257CD /* PlayerShipsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B542C9AE5F9004257CD /* PlayerShipsScreen.swift */; };
 		96E00B572C9AFB02004257CD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B562C9AFB02004257CD /* SettingsViewModel.swift */; };
 		96E00B5A2C9B072B004257CD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B592C9B072B004257CD /* ImagePicker.swift */; };
-		96E00B5E2C9C3EBE004257CD /* naruto_sadness-and-sorrow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 96E00B5D2C9C3EBE004257CD /* naruto_sadness-and-sorrow.mp3 */; };
-		96E00B602C9C415B004257CD /* naruto_the-raising-fighting-spirit.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 96E00B5F2C9C415B004257CD /* naruto_the-raising-fighting-spirit.mp3 */; };
 		96E00B622C9C488F004257CD /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B612C9C488F004257CD /* SettingsScreen.swift */; };
+		96E00B642C9D80A3004257CD /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B632C9D80A3004257CD /* CustomButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +65,8 @@
 		96E00B562C9AFB02004257CD /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		96E00B582C9B05A5004257CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		96E00B592C9B072B004257CD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		96E00B5D2C9C3EBE004257CD /* naruto_sadness-and-sorrow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "naruto_sadness-and-sorrow.mp3"; sourceTree = "<group>"; };
-		96E00B5F2C9C415B004257CD /* naruto_the-raising-fighting-spirit.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "naruto_the-raising-fighting-spirit.mp3"; sourceTree = "<group>"; };
 		96E00B612C9C488F004257CD /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsScreen.swift; path = ../../SettingsScreen.swift; sourceTree = "<group>"; };
+		96E00B632C9D80A3004257CD /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +97,6 @@
 		96890F8E2C8EFDC1008330A4 = {
 			isa = PBXGroup;
 			children = (
-				96E00B5D2C9C3EBE004257CD /* naruto_sadness-and-sorrow.mp3 */,
-				96E00B5F2C9C415B004257CD /* naruto_the-raising-fighting-spirit.mp3 */,
 				968414212C90505600D25FA0 /* Assets.xcassets */,
 				96890FC42C8EFE0D008330A4 /* image */,
 				96890F992C8EFDC1008330A4 /* VoidVanguard */,
@@ -170,6 +166,7 @@
 		96E00B4D2C94419E004257CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				96E00B632C9D80A3004257CD /* CustomButtonStyle.swift */,
 				96E00B612C9C488F004257CD /* SettingsScreen.swift */,
 				96E00B592C9B072B004257CD /* ImagePicker.swift */,
 				96E00B562C9AFB02004257CD /* SettingsViewModel.swift */,
@@ -289,9 +286,7 @@
 				968414222C90505600D25FA0 /* Explosion.sks in Resources */,
 				968414232C90505600D25FA0 /* Assets.xcassets in Resources */,
 				96890F9F2C8EFDC2008330A4 /* Assets.xcassets in Resources */,
-				96E00B602C9C415B004257CD /* naruto_the-raising-fighting-spirit.mp3 in Resources */,
 				96890FC62C8EFE1F008330A4 /* Void Vanguard .png in Resources */,
-				96E00B5E2C9C3EBE004257CD /* naruto_sadness-and-sorrow.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +313,7 @@
 			files = (
 				96890F9D2C8EFDC1008330A4 /* ContentView.swift in Sources */,
 				96E00B622C9C488F004257CD /* SettingsScreen.swift in Sources */,
+				96E00B642C9D80A3004257CD /* CustomButtonStyle.swift in Sources */,
 				96890F9B2C8EFDC1008330A4 /* VoidVanguardApp.swift in Sources */,
 				96E00B532C9AE5A8004257CD /* HighScoreScreen.swift in Sources */,
 				96E00B5A2C9B072B004257CD /* ImagePicker.swift in Sources */,

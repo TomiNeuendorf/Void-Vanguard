@@ -9,7 +9,6 @@ import GameKit
 import SwiftUI
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    
     // Use an external game state
     var gameState: GameState? // Reference to GameState
     
@@ -241,10 +240,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             explosion?.setScale(2)
             addChild(explosion!)
             // Player gets hit by boss fire
-              contactB.node?.removeFromParent() // Remove the boss fire
-              reducePlayerLife()
-          }
-      }
+            contactB.node?.removeFromParent() // Remove the boss fire
+            reducePlayerLife()
+        }
+    }
     
     func reducePlayerLife() {
         if let live1 = childNode(withName: "live1") {
@@ -297,6 +296,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gameOverFunc() {
         removeAllChildren()
         gameState?.gameOver = true // Notify SwiftUI that the game is over
-        
     }
 }
