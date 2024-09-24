@@ -22,9 +22,11 @@
 		96E00B532C9AE5A8004257CD /* HighScoreScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B522C9AE5A8004257CD /* HighScoreScreen.swift */; };
 		96E00B552C9AE5F9004257CD /* PlayerShipsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B542C9AE5F9004257CD /* PlayerShipsScreen.swift */; };
 		96E00B572C9AFB02004257CD /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B562C9AFB02004257CD /* SettingsViewModel.swift */; };
-		96E00B5A2C9B072B004257CD /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B592C9B072B004257CD /* ImagePicker.swift */; };
 		96E00B622C9C488F004257CD /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B612C9C488F004257CD /* SettingsScreen.swift */; };
 		96E00B642C9D80A3004257CD /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B632C9D80A3004257CD /* CustomButtonStyle.swift */; };
+		96E00B662CA17CFC004257CD /* shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96E00B652CA17CFC004257CD /* shoot.wav */; };
+		96E00B682CA183F0004257CD /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96E00B672CA183F0004257CD /* explosion.wav */; };
+		96E00B6C2CA2A044004257CD /* missile.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96E00B6B2CA2A044004257CD /* missile.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,9 +66,11 @@
 		96E00B542C9AE5F9004257CD /* PlayerShipsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerShipsScreen.swift; sourceTree = "<group>"; };
 		96E00B562C9AFB02004257CD /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		96E00B582C9B05A5004257CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		96E00B592C9B072B004257CD /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		96E00B612C9C488F004257CD /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsScreen.swift; path = ../../SettingsScreen.swift; sourceTree = "<group>"; };
 		96E00B632C9D80A3004257CD /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
+		96E00B652CA17CFC004257CD /* shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shoot.wav; sourceTree = "<group>"; };
+		96E00B672CA183F0004257CD /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		96E00B6B2CA2A044004257CD /* missile.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = missile.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				968414212C90505600D25FA0 /* Assets.xcassets */,
+				96E00B6B2CA2A044004257CD /* missile.wav */,
+				96E00B672CA183F0004257CD /* explosion.wav */,
+				96E00B652CA17CFC004257CD /* shoot.wav */,
 				96890FC42C8EFE0D008330A4 /* image */,
 				96890F992C8EFDC1008330A4 /* VoidVanguard */,
 				96890FAA2C8EFDC3008330A4 /* VoidVanguardTests */,
@@ -168,7 +175,6 @@
 			children = (
 				96E00B632C9D80A3004257CD /* CustomButtonStyle.swift */,
 				96E00B612C9C488F004257CD /* SettingsScreen.swift */,
-				96E00B592C9B072B004257CD /* ImagePicker.swift */,
 				96E00B562C9AFB02004257CD /* SettingsViewModel.swift */,
 				96E00B542C9AE5F9004257CD /* PlayerShipsScreen.swift */,
 				96E00B522C9AE5A8004257CD /* HighScoreScreen.swift */,
@@ -282,10 +288,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E00B662CA17CFC004257CD /* shoot.wav in Resources */,
 				96890FA22C8EFDC2008330A4 /* Preview Assets.xcassets in Resources */,
+				96E00B682CA183F0004257CD /* explosion.wav in Resources */,
 				968414222C90505600D25FA0 /* Explosion.sks in Resources */,
 				968414232C90505600D25FA0 /* Assets.xcassets in Resources */,
 				96890F9F2C8EFDC2008330A4 /* Assets.xcassets in Resources */,
+				96E00B6C2CA2A044004257CD /* missile.wav in Resources */,
 				96890FC62C8EFE1F008330A4 /* Void Vanguard .png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,7 +325,6 @@
 				96E00B642C9D80A3004257CD /* CustomButtonStyle.swift in Sources */,
 				96890F9B2C8EFDC1008330A4 /* VoidVanguardApp.swift in Sources */,
 				96E00B532C9AE5A8004257CD /* HighScoreScreen.swift in Sources */,
-				96E00B5A2C9B072B004257CD /* ImagePicker.swift in Sources */,
 				96E00B4F2C94427F004257CD /* GameScene.swift in Sources */,
 				96E00B552C9AE5F9004257CD /* PlayerShipsScreen.swift in Sources */,
 				968414252C91A69D00D25FA0 /* HomeScreen.swift in Sources */,

@@ -10,7 +10,7 @@ struct SettingsScreen: View {
             }
         }
     }
-
+    
     var body: some View {
         ZStack {
             // Background Image Handling
@@ -28,13 +28,13 @@ struct SettingsScreen: View {
             
             VStack(spacing: 20){
                 Text("Settings")
-                    .font(.custom("Chalkduster", size: 40))
+                    .font(.custom("Chalkduster", size: 50))
                     .foregroundColor(.white)
                     .shadow(color: .purple, radius: 5)
                     .padding()
-                    
-                    .padding()
                 // Change Password and Change Email buttons
+                    .padding(80)
+                
                 Button(action: {
                     // Action for Change Password
                 }) {
@@ -43,6 +43,8 @@ struct SettingsScreen: View {
                 .padding()
                 .buttonStyle(CustomButtonStyle())
                 
+                Spacer()
+                
                 Button(action: {
                     // Action for Change Email
                 }) {
@@ -50,7 +52,7 @@ struct SettingsScreen: View {
                 }
                 .padding()
                 .buttonStyle(CustomButtonStyle())
-
+                
                 Spacer()
             }
             .foregroundColor(.white) // Make text white for better visibility

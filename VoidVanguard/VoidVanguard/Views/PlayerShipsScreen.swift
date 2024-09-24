@@ -21,18 +21,6 @@ struct PlayerShipsScreen: View {
                 .ignoresSafeArea()
             
             VStack {
-                HStack {
-                    // Back option
-                    Text("Back")
-                        .font(.headline)
-                        .foregroundColor(.blue)
-                        .onTapGesture {
-                            presentationMode.wrappedValue.dismiss() // Go back to the previous screen
-                        }
-                    Spacer()
-                }
-                .padding()
-
                 Text("Choose Your Ship")
                     .font(.custom("Chalkduster", size: 35))
                     .foregroundColor(.white)
