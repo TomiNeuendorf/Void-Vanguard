@@ -41,6 +41,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var bossOneFire = SKSpriteNode()
     var bossOneLives = 25
     
+    // Upgrade Nodes
+    var upgrade: SKSpriteNode?
+    // Default fire rate
+    var originalFireRate: TimeInterval = 0.5
+    // Fire rate during boost
+    var boostedFireRate: TimeInterval = 0.2
+    
     // Category Bitmask Definitions
     struct CBitmask {
         static let playerShip: UInt32 = 0b1
@@ -48,6 +55,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         static let enemyShip: UInt32 = 0b100
         static let bossOne: UInt32 = 0b1000
         static let bossOneFire: UInt32 = 0b10000
+        static let upgrade: UInt32 = 0b100000
     }
     
     // MARK: - Scene Setup
@@ -134,12 +142,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.isDynamic = true
         player.physicsBody?.categoryBitMask = CBitmask.playerShip
-        player.physicsBody?.contactTestBitMask = CBitmask.enemyShip | CBitmask.bossOneFire
+        player.physicsBody?.contactTestBitMask = CBitmask.enemyShip | CBitmask.bossOneFire | CBitmask.upgrade
         player.physicsBody?.collisionBitMask = CBitmask.enemyShip | CBitmask.bossOneFire
         
         addChild(player)
-        
-        // Add shadow to the player
+
     }
     
     // MARK: - Enemy Setup
@@ -255,7 +262,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         playerFire.run(sequence)
     }
-    
+   
+    // MARK: - Sound Funktion for Player Boss and Explosion
     func playPlayerShootSound() {
             guard let url = Bundle.main.url(forResource: "shoot", withExtension: "wav") else { return }
             
@@ -337,6 +345,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             contactB = contact.bodyA
         }
         
+        if contactA.categoryBitMask == CBitmask.playerShip && contactB.categoryBitMask == CBitmask.upgrade {
+            if let upgradeNode = contactB.node as? SKSpriteNode {
+                applyUpgrade(upgrade: upgradeNode, to: player)
+                upgradeNode.removeFromParent()
+            }
+        }
+
+        
+        
+        
         // MARK: - Contact Scenarios
         
         // 1. Player ship hits enemy ship
@@ -389,7 +407,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        // 4. Player ship hits boss fire
+        // MARK:- 4. Player ship hits boss fire
         if contactA.categoryBitMask == CBitmask.playerShip && contactB.categoryBitMask == CBitmask.bossOneFire {
             if let bossFireNode = contactB.node as? SKSpriteNode {
                 let explosion = SKEmitterNode(fileNamed: "Explosion")
@@ -404,6 +422,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 reducePlayerLife()
             }
         }
+        // MARK: - 5. Player collects upgrade
+        if contactA.categoryBitMask == CBitmask.playerShip && contactB.categoryBitMask == CBitmask.upgrade {
+            if let upgradeNode = contactB.node as? SKSpriteNode {
+                applyUpgrade(upgrade: upgradeNode , to: player)
+                upgradeNode.removeFromParent()
+            }
+        }
     }
     
     // MARK: - Collision Handlers
@@ -412,10 +437,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     /// - Parameters:
     ///   - fires: The player fire node.
     ///   - enemys: The enemy ship node.
+   
     func playerFireHitEnemy(fires: SKSpriteNode, enemys: SKSpriteNode) {
         fires.removeFromParent()
         enemys.removeFromParent()
-        
+
         let explosion = SKEmitterNode(fileNamed: "Explosion")
         explosion?.position = enemys.position
         explosion?.zPosition = 5
@@ -423,8 +449,85 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let explosion = explosion {
             addChild(explosion)
         }
+
+        // Random chance to spawn an upgrade (e.g., 30% chance)
+        let chance = Int.random(in: 1...100)
+        if chance <= 50 {
+            spawnUpgrade(at: enemys.position)
+        }
+    }
+
+    // MARK: - Upgrade Spawning
+    func spawnUpgrade(at position: CGPoint) {
+        let upgradeType = Int.random(in: 0...1) // Randomly choose an upgrade type (0 for speed, 1 for fire rate)
+        let upgrade: SKSpriteNode
+
+        // Create the upgrade node based on the random type
+        if upgradeType == 0 {
+            upgrade = SKSpriteNode(imageNamed: "speedBoost")
+            upgrade.name = "speedUpgrade"
+        } else {
+            upgrade = SKSpriteNode(imageNamed: "fireRateBoost")
+            upgrade.name = "fireRateUpgrade"
+        }
+
+        upgrade.position = position
+        upgrade.zPosition = 5
+        upgrade.setScale(0.2)
+
+        // Set up physics body for the upgrade
+        upgrade.physicsBody = SKPhysicsBody(rectangleOf: upgrade.size)
+        upgrade.physicsBody?.affectedByGravity = false
+        upgrade.physicsBody?.categoryBitMask = CBitmask.upgrade
+        upgrade.physicsBody?.contactTestBitMask = CBitmask.playerShip
+        upgrade.physicsBody?.collisionBitMask = 0
+
+        addChild(upgrade)
+
+        // Spawn an accompanying image (e.g., glow or aura)
+        let accompanyingImage = SKSpriteNode(imageNamed: "speedBoost")
+        accompanyingImage.position = position
+        accompanyingImage.zPosition = 4
+        accompanyingImage.setScale(1)
+        accompanyingImage.alpha = 0.8
+
+        // Set accompanying image to fade out slowly
+        let fadeOutAction = SKAction.fadeOut(withDuration: 3.0)
+        let removeAccompanyingImageAction = SKAction.removeFromParent()
+        let imageSequence = SKAction.sequence([fadeOutAction, removeAccompanyingImageAction])
+        accompanyingImage.run(imageSequence)
+
+        addChild(accompanyingImage)
+
+        // Make the upgrade move downwards
+        let moveAction = SKAction.moveTo(y: -upgrade.size.height, duration: 3.0)
+        let removeAction = SKAction.removeFromParent()
+        let sequence = SKAction.sequence([moveAction, removeAction])
+        upgrade.run(sequence)
+    }
+
+    // MARK: Apply Upgrade
+    
+    func applyUpgrade(upgrade: SKSpriteNode, to player: SKSpriteNode) {
+        if upgrade.name == "speedUpgrade" {
+            // Apply speed boost to player (e.g., increasing movement speed or handling)
+            print("Speed upgrade applied!")
+            // Implement the speed boost logic here
+        } else if upgrade.name == "fireRateUpgrade" {
+            // Apply fire rate boost to player
+            print("Fire rate upgrade applied!")
+            fireTimer.invalidate() // Stop the existing timer
+            fireTimer = Timer.scheduledTimer(timeInterval: boostedFireRate, target: self, selector: #selector(playerFireFunction), userInfo: nil, repeats: true)
+            
+            // Schedule timer to revert back to normal fire rate after 10 seconds
+            Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { [weak self] timer in
+                self?.fireTimer.invalidate()
+                self?.fireTimer = Timer.scheduledTimer(timeInterval: self?.originalFireRate ?? 0.5, target: self!, selector: #selector(self?.playerFireFunction), userInfo: nil, repeats: true)
+            }
+        }
     }
     
+    // MARK: - Reduce Player Life Function
     /// Reduces the player's life by removing a heart. If no lives remain, triggers game over.
     func reducePlayerLife() {
         if let live1 = childNode(withName: "live1") {
