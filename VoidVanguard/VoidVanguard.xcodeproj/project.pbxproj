@@ -29,6 +29,7 @@
 		96E00B6C2CA2A044004257CD /* missile.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96E00B6B2CA2A044004257CD /* missile.wav */; };
 		96E00B6E2CA58376004257CD /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B6D2CA58376004257CD /* OnboardingScreen.swift */; };
 		96E00B702CA5993F004257CD /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B6F2CA5993F004257CD /* LogInScreen.swift */; };
+		96E00B722CA59B37004257CD /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B712CA59B37004257CD /* RegisterScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		96E00B6B2CA2A044004257CD /* missile.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = missile.wav; sourceTree = "<group>"; };
 		96E00B6D2CA58376004257CD /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		96E00B6F2CA5993F004257CD /* LogInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
+		96E00B712CA59B37004257CD /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		96890F8E2C8EFDC1008330A4 = {
 			isa = PBXGroup;
 			children = (
+				96E00B712CA59B37004257CD /* RegisterScreen.swift */,
 				968414212C90505600D25FA0 /* Assets.xcassets */,
 				96E00B6B2CA2A044004257CD /* missile.wav */,
 				96E00B672CA183F0004257CD /* explosion.wav */,
@@ -326,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E00B722CA59B37004257CD /* RegisterScreen.swift in Sources */,
 				96E00B6E2CA58376004257CD /* OnboardingScreen.swift in Sources */,
 				96890F9D2C8EFDC1008330A4 /* ContentView.swift in Sources */,
 				96E00B622C9C488F004257CD /* SettingsScreen.swift in Sources */,
