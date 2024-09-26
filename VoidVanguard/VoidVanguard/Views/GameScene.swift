@@ -91,13 +91,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background1.setScale(1.3)
         background1.zPosition = 0
         addChild(background1)
-        
+
         // Configure background2
         background2.position = CGPoint(x: size.width / 2, y: background1.position.y + background1.size.height)
         background2.setScale(1.3)
         background2.zPosition = 0
         addChild(background2)
-    }
+
+        // Add gradient overlay to background
+     //   let gradientOverlay = SKSpriteNode(color: .purple, size: CGSize(width: size.width, height: background1.size.height))
+    //    gradientOverlay.position = CGPoint(x: size.width / 2, y: size.height / 2)
+    //    gradientOverlay.zPosition = 0
+
+        // Create a gradient shader
+    //    let shader = SKShader(source: """
+    //    void main() {
+      //      vec2 uv = v_tex_coord;
+      //      float alpha = smoothstep(0.0, 0.2, uv.y) * smoothstep(1.0, 0.8, uv.y);
+   //         gl_FragColor = vec4(1.0, 1.0, 1.0, alpha);
+      //  }
+    //    """)
+
+      //  gradientOverlay.shader = shader
+    //    addChild(gradientOverlay)
+   }
+
+    
+   
     
     override func update(_ currentTime: TimeInterval) {
         moveBackground()
@@ -450,10 +470,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             addChild(explosion)
         }
 
-        // Random chance to spawn an upgrade (e.g., 30% chance)
+        // Random chance to spawn an upgrade (e.g., 5% chance)
         let chance = Int.random(in: 1...100)
-        if chance <= 50 {
-            spawnUpgrade(at: enemys.position)
+       if chance <= 5 {
+       spawnUpgrade(at: enemys.position)
         }
     }
 
@@ -473,7 +493,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         upgrade.position = position
         upgrade.zPosition = 5
-        upgrade.setScale(0.2)
+        upgrade.setScale(1.5)
 
         // Set up physics body for the upgrade
         upgrade.physicsBody = SKPhysicsBody(rectangleOf: upgrade.size)
@@ -487,8 +507,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // Spawn an accompanying image (e.g., glow or aura)
         let accompanyingImage = SKSpriteNode(imageNamed: "speedBoost")
         accompanyingImage.position = position
-        accompanyingImage.zPosition = 4
-        accompanyingImage.setScale(1)
+        accompanyingImage.zPosition = 5
+        accompanyingImage.setScale(1.5)
         accompanyingImage.alpha = 0.8
 
         // Set accompanying image to fade out slowly

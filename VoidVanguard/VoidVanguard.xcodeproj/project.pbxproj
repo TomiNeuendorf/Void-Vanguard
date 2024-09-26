@@ -27,6 +27,8 @@
 		96E00B662CA17CFC004257CD /* shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96E00B652CA17CFC004257CD /* shoot.wav */; };
 		96E00B682CA183F0004257CD /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96E00B672CA183F0004257CD /* explosion.wav */; };
 		96E00B6C2CA2A044004257CD /* missile.wav in Resources */ = {isa = PBXBuildFile; fileRef = 96E00B6B2CA2A044004257CD /* missile.wav */; };
+		96E00B6E2CA58376004257CD /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B6D2CA58376004257CD /* OnboardingScreen.swift */; };
+		96E00B702CA5993F004257CD /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B6F2CA5993F004257CD /* LogInScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		96E00B652CA17CFC004257CD /* shoot.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = shoot.wav; sourceTree = "<group>"; };
 		96E00B672CA183F0004257CD /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
 		96E00B6B2CA2A044004257CD /* missile.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = missile.wav; sourceTree = "<group>"; };
+		96E00B6D2CA58376004257CD /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		96E00B6F2CA5993F004257CD /* LogInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +177,8 @@
 		96E00B4D2C94419E004257CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				96E00B6F2CA5993F004257CD /* LogInScreen.swift */,
+				96E00B6D2CA58376004257CD /* OnboardingScreen.swift */,
 				96E00B632C9D80A3004257CD /* CustomButtonStyle.swift */,
 				96E00B612C9C488F004257CD /* SettingsScreen.swift */,
 				96E00B562C9AFB02004257CD /* SettingsViewModel.swift */,
@@ -320,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E00B6E2CA58376004257CD /* OnboardingScreen.swift in Sources */,
 				96890F9D2C8EFDC1008330A4 /* ContentView.swift in Sources */,
 				96E00B622C9C488F004257CD /* SettingsScreen.swift in Sources */,
 				96E00B642C9D80A3004257CD /* CustomButtonStyle.swift in Sources */,
@@ -327,6 +334,7 @@
 				96E00B532C9AE5A8004257CD /* HighScoreScreen.swift in Sources */,
 				96E00B4F2C94427F004257CD /* GameScene.swift in Sources */,
 				96E00B552C9AE5F9004257CD /* PlayerShipsScreen.swift in Sources */,
+				96E00B702CA5993F004257CD /* LogInScreen.swift in Sources */,
 				968414252C91A69D00D25FA0 /* HomeScreen.swift in Sources */,
 				96E00B572C9AFB02004257CD /* SettingsViewModel.swift in Sources */,
 			);
