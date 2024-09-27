@@ -30,6 +30,9 @@
 		96E00B6E2CA58376004257CD /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B6D2CA58376004257CD /* OnboardingScreen.swift */; };
 		96E00B702CA5993F004257CD /* LogInScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B6F2CA5993F004257CD /* LogInScreen.swift */; };
 		96E00B722CA59B37004257CD /* RegisterScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B712CA59B37004257CD /* RegisterScreen.swift */; };
+		96E00B752CA69C7A004257CD /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B742CA69C7A004257CD /* Model.swift */; };
+		96E00B792CA6A48F004257CD /* QuoteRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B782CA6A48F004257CD /* QuoteRepo.swift */; };
+		96E00B7B2CA6A535004257CD /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96E00B7A2CA6A535004257CD /* QuoteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		96E00B6D2CA58376004257CD /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		96E00B6F2CA5993F004257CD /* LogInScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInScreen.swift; sourceTree = "<group>"; };
 		96E00B712CA59B37004257CD /* RegisterScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterScreen.swift; sourceTree = "<group>"; };
+		96E00B742CA69C7A004257CD /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		96E00B782CA6A48F004257CD /* QuoteRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRepo.swift; sourceTree = "<group>"; };
+		96E00B7A2CA6A535004257CD /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +113,6 @@
 		96890F8E2C8EFDC1008330A4 = {
 			isa = PBXGroup;
 			children = (
-				96E00B712CA59B37004257CD /* RegisterScreen.swift */,
 				968414212C90505600D25FA0 /* Assets.xcassets */,
 				96E00B6B2CA2A044004257CD /* missile.wav */,
 				96E00B672CA183F0004257CD /* explosion.wav */,
@@ -134,12 +139,15 @@
 			isa = PBXGroup;
 			children = (
 				96E00B582C9B05A5004257CD /* Info.plist */,
+				96E00B772CA6A478004257CD /* Repo */,
+				96E00B732CA69C66004257CD /* Model */,
 				96E00B4D2C94419E004257CD /* Views */,
 				96890F9A2C8EFDC1008330A4 /* VoidVanguardApp.swift */,
 				96890F9C2C8EFDC1008330A4 /* ContentView.swift */,
 				968414202C90505600D25FA0 /* Explosion.sks */,
 				96890F9E2C8EFDC2008330A4 /* Assets.xcassets */,
 				96890FA02C8EFDC2008330A4 /* Preview Content */,
+				96E00B7A2CA6A535004257CD /* QuoteViewModel.swift */,
 			);
 			path = VoidVanguard;
 			sourceTree = "<group>";
@@ -180,6 +188,7 @@
 		96E00B4D2C94419E004257CD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				96E00B712CA59B37004257CD /* RegisterScreen.swift */,
 				96E00B6F2CA5993F004257CD /* LogInScreen.swift */,
 				96E00B6D2CA58376004257CD /* OnboardingScreen.swift */,
 				96E00B632C9D80A3004257CD /* CustomButtonStyle.swift */,
@@ -191,6 +200,22 @@
 				96E00B4E2C94427F004257CD /* GameScene.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		96E00B732CA69C66004257CD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				96E00B742CA69C7A004257CD /* Model.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		96E00B772CA6A478004257CD /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				96E00B782CA6A48F004257CD /* QuoteRepo.swift */,
+			);
+			path = Repo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -329,12 +354,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96E00B792CA6A48F004257CD /* QuoteRepo.swift in Sources */,
 				96E00B722CA59B37004257CD /* RegisterScreen.swift in Sources */,
 				96E00B6E2CA58376004257CD /* OnboardingScreen.swift in Sources */,
 				96890F9D2C8EFDC1008330A4 /* ContentView.swift in Sources */,
 				96E00B622C9C488F004257CD /* SettingsScreen.swift in Sources */,
 				96E00B642C9D80A3004257CD /* CustomButtonStyle.swift in Sources */,
+				96E00B7B2CA6A535004257CD /* QuoteViewModel.swift in Sources */,
 				96890F9B2C8EFDC1008330A4 /* VoidVanguardApp.swift in Sources */,
+				96E00B752CA69C7A004257CD /* Model.swift in Sources */,
 				96E00B532C9AE5A8004257CD /* HighScoreScreen.swift in Sources */,
 				96E00B4F2C94427F004257CD /* GameScene.swift in Sources */,
 				96E00B552C9AE5F9004257CD /* PlayerShipsScreen.swift in Sources */,
