@@ -98,8 +98,10 @@ struct HomeScreen: View {
                     .buttonStyle(CustomButtonStyle())
                     .padding()
                     
-                    Button("H-Scores") {
-                        // Action for HighScores
+                    NavigationLink(destination: HighScoreScreen()) {
+                        Text("High-Score")
+                            .font(.headline)
+                            .fontWeight(.bold)
                     }
                     .buttonStyle(CustomButtonStyle())
                     .padding()
