@@ -28,7 +28,6 @@ struct SpaceBackground: UIViewRepresentable {
 
 
 struct HomeScreen: View {
-    @ObservedObject var quoteViewModel = QuoteViewModel()
     
     var body: some View {
         ZStack {
@@ -47,38 +46,6 @@ struct HomeScreen: View {
                     .padding()
                 
                 Spacer()
-                
-                // ScrollView für Quotes mit Rahmen/Box
-                ScrollView {
-                    VStack(spacing: 20) {
-                        ForEach(quoteViewModel.quotes) { quote in
-                            VStack {
-                                Text(quote.quote)
-                                    .font(.headline)
-                                    .foregroundColor(.white)
-                                    .multilineTextAlignment(.center)
-                                    .padding(.bottom, 5)
-                                
-                                Text("- \(quote.character)")
-                                    .font(.subheadline)
-                                    .foregroundColor(.gray)
-                            }
-                            .padding()
-                            .background(
-                                Color.black.opacity(0.3) // Hintergrundfarbe der Box
-                            )
-                            .cornerRadius(10) // Optional: Leicht abgerundete Ecken
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(Color.purple, lineWidth: 2) // Rahmen um die Box
-                            )
-                            .padding(.horizontal)
-                        }
-                    }
-                }
-                .frame(height: 300) // Höhe für den scrollbaren Bereich
-                .padding(.bottom, 20)
-                
                 // Start Game Button
                 NavigationLink(destination: ContentView().navigationBarHidden(true).navigationBarBackButtonHidden(true)) {
                     Text("Start Game")
