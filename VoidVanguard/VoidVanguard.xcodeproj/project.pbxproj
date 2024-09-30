@@ -53,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		966F42CB2CAAAD360029F5D0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		968414202C90505600D25FA0 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		968414212C90505600D25FA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		968414242C91A69D00D25FA0 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -113,6 +114,7 @@
 		96890F8E2C8EFDC1008330A4 = {
 			isa = PBXGroup;
 			children = (
+				966F42CB2CAAAD360029F5D0 /* .gitignore */,
 				968414212C90505600D25FA0 /* Assets.xcassets */,
 				96E00B6B2CA2A044004257CD /* missile.wav */,
 				96E00B672CA183F0004257CD /* explosion.wav */,
