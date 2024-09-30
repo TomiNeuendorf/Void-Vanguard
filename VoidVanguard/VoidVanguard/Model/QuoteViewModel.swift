@@ -7,14 +7,13 @@
 
 import Foundation
 
-class QuoteViewModel:ObservableObject {
+class QuoteViewModel: ObservableObject {
     
     @Published var quotes: [Quote] = []
     @Published var status: Status? {
-        
         didSet {
-            Task{
-                await load ()
+            Task {
+                await load()
             }
         }
     }
@@ -25,26 +24,23 @@ class QuoteViewModel:ObservableObject {
         }
     }
     
-    private func load() async {
+    func load() async {
         status = .isLoading
-        do{
+        do {
             quotes = try await repository.fetchQuote()
-        }catch {
+        } catch {
             let error = error as! QuoteRepoError
             status = .error
-            print("Could not load Quote data:\(error.description)")
+            print("Could not load Quote data: \(error.description)")
         }
         status = .done
     }
     
     private let repository = QuoteRepo()
-    
 }
     
 enum Status {
     case isLoading
     case error
     case done
-    
-    
 }

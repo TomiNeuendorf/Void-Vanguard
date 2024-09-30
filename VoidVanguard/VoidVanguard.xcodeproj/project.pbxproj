@@ -147,7 +147,6 @@
 				968414202C90505600D25FA0 /* Explosion.sks */,
 				96890F9E2C8EFDC2008330A4 /* Assets.xcassets */,
 				96890FA02C8EFDC2008330A4 /* Preview Content */,
-				96E00B7A2CA6A535004257CD /* QuoteViewModel.swift */,
 			);
 			path = VoidVanguard;
 			sourceTree = "<group>";
@@ -205,6 +204,7 @@
 		96E00B732CA69C66004257CD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				96E00B7A2CA6A535004257CD /* QuoteViewModel.swift */,
 				96E00B742CA69C7A004257CD /* Model.swift */,
 			);
 			path = Model;

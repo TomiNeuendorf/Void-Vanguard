@@ -25,17 +25,21 @@ struct SpaceBackground: UIViewRepresentable {
     func updateUIView(_ uiView: SKView, context: Context) {}
 }
 
+
+
 struct HomeScreen: View {
+    @ObservedObject var quoteViewModel = QuoteViewModel()
+    
     var body: some View {
         ZStack {
-            // Use the selected background image or fallback to a default background
-            Image("Void") // Default background image
+            // Hintergrundbild
+            Image("Void")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
             
             VStack {
-                // Title
+                // Titel
                 Text("Void Vanguard")
                     .font(.custom("Chalkduster", size: 40))
                     .foregroundColor(.white)
@@ -44,7 +48,38 @@ struct HomeScreen: View {
                 
                 Spacer()
                 
-                // Start Game button
+                // ScrollView für Quotes mit Rahmen/Box
+                ScrollView {
+                    VStack(spacing: 20) {
+                        ForEach(quoteViewModel.quotes) { quote in
+                            VStack {
+                                Text(quote.quote)
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.bottom, 5)
+                                
+                                Text("- \(quote.character)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.gray)
+                            }
+                            .padding()
+                            .background(
+                                Color.black.opacity(0.3) // Hintergrundfarbe der Box
+                            )
+                            .cornerRadius(10) // Optional: Leicht abgerundete Ecken
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(Color.purple, lineWidth: 2) // Rahmen um die Box
+                            )
+                            .padding(.horizontal)
+                        }
+                    }
+                }
+                .frame(height: 300) // Höhe für den scrollbaren Bereich
+                .padding(.bottom, 20)
+                
+                // Start Game Button
                 NavigationLink(destination: ContentView().navigationBarHidden(true).navigationBarBackButtonHidden(true)) {
                     Text("Start Game")
                         .font(.headline)
@@ -53,6 +88,7 @@ struct HomeScreen: View {
                 .buttonStyle(CustomButtonStyle())
                 .padding(.bottom, 50)
                 
+                // Weitere Buttons
                 HStack {
                     NavigationLink(destination: PlayerShipsScreen()) {
                         Text("Ships")
@@ -86,5 +122,3 @@ struct HomeScreen: View {
         HomeScreen()
     }
 }
-
-
