@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		966F42D02CAADD420029F5D0 /* QuoteRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F42CF2CAADD420029F5D0 /* QuoteRepo.swift */; };
+		966F42D32CAADD870029F5D0 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F42D22CAADD870029F5D0 /* Quote.swift */; };
+		966F42D62CABF1360029F5D0 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F42D52CABF1360029F5D0 /* QuoteViewModel.swift */; };
 		968414222C90505600D25FA0 /* Explosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 968414202C90505600D25FA0 /* Explosion.sks */; };
 		968414232C90505600D25FA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 968414212C90505600D25FA0 /* Assets.xcassets */; };
 		968414252C91A69D00D25FA0 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 968414242C91A69D00D25FA0 /* HomeScreen.swift */; };
@@ -51,6 +54,9 @@
 
 /* Begin PBXFileReference section */
 		966F42CB2CAAAD360029F5D0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
+		966F42CF2CAADD420029F5D0 /* QuoteRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRepo.swift; sourceTree = "<group>"; };
+		966F42D22CAADD870029F5D0 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
+		966F42D52CABF1360029F5D0 /* QuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteViewModel.swift; sourceTree = "<group>"; };
 		968414202C90505600D25FA0 /* Explosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Explosion.sks; sourceTree = "<group>"; };
 		968414212C90505600D25FA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		968414242C91A69D00D25FA0 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
@@ -105,6 +111,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		966F42CE2CAADD330029F5D0 /* Repo */ = {
+			isa = PBXGroup;
+			children = (
+				966F42CF2CAADD420029F5D0 /* QuoteRepo.swift */,
+			);
+			path = Repo;
+			sourceTree = "<group>";
+		};
+		966F42D12CAADD7B0029F5D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				966F42D22CAADD870029F5D0 /* Quote.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		966F42D42CABF1110029F5D0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				966F42D52CABF1360029F5D0 /* QuoteViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		96890F8E2C8EFDC1008330A4 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +164,9 @@
 		96890F992C8EFDC1008330A4 /* VoidVanguard */ = {
 			isa = PBXGroup;
 			children = (
+				966F42D42CABF1110029F5D0 /* ViewModels */,
+				966F42D12CAADD7B0029F5D0 /* Model */,
+				966F42CE2CAADD330029F5D0 /* Repo */,
 				96E00B582C9B05A5004257CD /* Info.plist */,
 				96E00B4D2C94419E004257CD /* Views */,
 				96890F9A2C8EFDC1008330A4 /* VoidVanguardApp.swift */,
@@ -337,11 +370,14 @@
 				96E00B622C9C488F004257CD /* SettingsScreen.swift in Sources */,
 				96E00B642C9D80A3004257CD /* CustomButtonStyle.swift in Sources */,
 				96890F9B2C8EFDC1008330A4 /* VoidVanguardApp.swift in Sources */,
+				966F42D62CABF1360029F5D0 /* QuoteViewModel.swift in Sources */,
 				96E00B532C9AE5A8004257CD /* HighScoreScreen.swift in Sources */,
+				966F42D02CAADD420029F5D0 /* QuoteRepo.swift in Sources */,
 				96E00B4F2C94427F004257CD /* GameScene.swift in Sources */,
 				96E00B552C9AE5F9004257CD /* PlayerShipsScreen.swift in Sources */,
 				96E00B702CA5993F004257CD /* LogInScreen.swift in Sources */,
 				968414252C91A69D00D25FA0 /* HomeScreen.swift in Sources */,
+				966F42D32CAADD870029F5D0 /* Quote.swift in Sources */,
 				96E00B572C9AFB02004257CD /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,7 +28,7 @@ struct SpaceBackground: UIViewRepresentable {
 
 
 struct HomeScreen: View {
-    
+    @StateObject var quoteViewModel = QuoteViewModel()
     var body: some View {
         ZStack {
             // Hintergrundbild
@@ -45,7 +45,24 @@ struct HomeScreen: View {
                     .shadow(color: .purple, radius: 5)
                     .padding()
                 
+                Text(quoteViewModel.quotes.quote)
+                    .foregroundColor(.white)
+                    .shadow(color: .white, radius: 4)
+                    .lineLimit(8)
+                    .font(.custom("Chalkduster", size: 20))
+                    .frame(width: .infinity)
+                    .padding()
+                    .background(
+                        LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.7), Color.black.opacity(0.7)]),
+                                       startPoint: .topLeading,
+                                       endPoint: .bottomTrailing)
+                    )
+                    .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                    .padding(50)
+                    
+                
                 Spacer()
+                
                 // Start Game Button
                 NavigationLink(destination: ContentView().navigationBarHidden(true).navigationBarBackButtonHidden(true)) {
                     Text("Start Game")
