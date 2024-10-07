@@ -97,23 +97,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background2.setScale(1.3)
         background2.zPosition = 0
         addChild(background2)
-
-        // Add gradient overlay to background
-     //   let gradientOverlay = SKSpriteNode(color: .purple, size: CGSize(width: size.width, height: background1.size.height))
-    //    gradientOverlay.position = CGPoint(x: size.width / 2, y: size.height / 2)
-    //    gradientOverlay.zPosition = 0
-
-        // Create a gradient shader
-    //    let shader = SKShader(source: """
-    //    void main() {
-      //      vec2 uv = v_tex_coord;
-      //      float alpha = smoothstep(0.0, 0.2, uv.y) * smoothstep(1.0, 0.8, uv.y);
-   //         gl_FragColor = vec4(1.0, 1.0, 1.0, alpha);
-      //  }
-    //    """)
-
-      //  gradientOverlay.shader = shader
-    //    addChild(gradientOverlay)
    }
 
     

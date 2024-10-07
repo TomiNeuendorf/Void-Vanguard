@@ -6,15 +6,23 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct VoidVanguardApp: App {
-    @StateObject var settings = SettingsViewModel()
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(settings)
+            if FireBaseAuth.shared.isUserSignedIn{
+                HomeScreen()
+            }else {
+                OnboardingScreen()
+            }
         }
+    }
+    
+    init() {
+        FirebaseConfiguration.shared.setLoggerLevel(.min)
+        FirebaseApp.configure()
     }
 }
 

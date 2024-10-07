@@ -9,7 +9,7 @@ class GameState: ObservableObject {
 }
 
 struct ContentView: View {
-    @EnvironmentObject var settingsViewModel : SettingsViewModel
+
     @ObservedObject var gameState = GameState() // Using the GameState
     
     var body: some View {
@@ -32,7 +32,6 @@ struct ContentView: View {
                             Spacer()
                             NavigationLink {
                                 HomeScreen()
-                                    .environmentObject(settingsViewModel)
                                     .navigationBarHidden(true)
                                     .navigationBarBackButtonHidden(true)
                             } label: {
@@ -64,7 +63,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView().environmentObject(SettingsViewModel())
+    ContentView()
     
 }
 

@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct LoginScreen: View {
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @State private var email =  ""
+    @State private var password =  ""
+    @State private var hasPressedSignUp = false
+    @State private var hasPressedSignIn = false
+    @State private var isPresentingError = false
+    @State private var lastErrorMessage = ""
+    
     
     var body: some View {
         ZStack {
@@ -19,7 +24,7 @@ struct LoginScreen: View {
             
             VStack {
                 Spacer()
-
+                
                 // Title
                 Text("Login to Void Vanguard")
                     .font(.custom("Chalkduster", size: 35))
@@ -62,45 +67,57 @@ struct LoginScreen: View {
                         .padding(.horizontal)
                 }
                 .padding(.bottom, 40)
-
+                
                 // Login Button
-                Button(action: {
+                Button(action:attemptSignIn) {
                     // Handle login action
-                }) {
-                    Text("Login")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(width: 200)
-                        .background(Color.purple)
-                        .cornerRadius(10)
-                        .shadow(color: .purple, radius: 5)
-                }
-                .padding(.bottom, 50)
-                
-                Spacer()
-                
-                // Sign Up option
-                HStack {
-                    Text("Don't have an account?")
-                        .foregroundColor(.white)
-                    
-                    NavigationLink(destination: RegisterScreen()) {
-                        Text("Sign Up")
-                            .foregroundColor(.purple)
-                            .bold()
+                        Text("Login")
+                            .font(.headline)
+                            .fontWeight(.bold)
+                            .foregroundColor(.white)
+                            .padding()
+                            .frame(width: 200)
+                            .background(Color.purple)
+                            .cornerRadius(10)
+                            .shadow(color: .purple, radius: 5)
                     }
+                    .padding(.bottom, 50)
+                    
+                    Spacer()
+                    
+                    // Sign Up option
+                    HStack {
+                        Text("Don't have an account?")
+                            .foregroundColor(.white)
+                        
+                        NavigationLink(destination: RegisterScreen()) {
+                            Text("Sign Up")
+                                .foregroundColor(.purple)
+                                .bold()
+                        }
+                    }
+                    .padding(.bottom, 30)
                 }
-                .padding(.bottom, 30)
+            }
+        }
+        
+        func attemptSignIn() {
+            Task {
+                hasPressedSignIn = true
+                do {
+                    try await FireBaseAuth.shared.signIn(email: email, password: password)
+                } catch {
+                    lastErrorMessage = error.localizedDescription
+                    isPresentingError = true
+                }
+                hasPressedSignIn = false
             }
         }
     }
-}
-
-struct LoginScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        LoginScreen()
+    
+    struct LoginScreen_Previews: PreviewProvider {
+        static var previews: some View {
+            LoginScreen()
+        }
     }
-}
-
+    

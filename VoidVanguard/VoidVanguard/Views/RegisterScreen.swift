@@ -11,6 +11,10 @@ struct RegisterScreen: View {
     @State private var email: String = ""
     @State private var password: String = ""
     @State private var confirmPassword: String = ""
+    @State private var hasPressedSignUp = false
+    @State private var hasPressedSignIn = false
+    @State private var isPresentingError = false
+    @State private var lastErrorMessage = ""
     
     var body: some View {
         ZStack {
@@ -83,7 +87,18 @@ struct RegisterScreen: View {
                 
                 // Register Button
                 Button(action: {
-                }) {
+                    if password == confirmPassword {
+                        Task {
+                            do{
+                                try await FireBaseAuth.shared.signUp(email: email, password: password)
+                            }catch {
+                                print("Error signing up \(error)")
+                            }
+                        }
+                    }else {
+                        print("Passwords to not Match")
+                    }
+                }){
                     Text("Register")
                         .font(.headline)
                         .fontWeight(.bold)
@@ -111,6 +126,19 @@ struct RegisterScreen: View {
                 }
                 .padding(.bottom, 30)
             }
+        }
+    }
+    
+    func attemptSignUp() {
+        Task {
+            hasPressedSignUp = true
+            do {
+                try await FireBaseAuth.shared.signUp(email: email, password: password)
+            } catch {
+                lastErrorMessage = error.localizedDescription
+                isPresentingError = true
+            }
+            hasPressedSignUp = false
         }
     }
 }

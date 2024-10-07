@@ -25,9 +25,8 @@ struct SpaceBackground: UIViewRepresentable {
     func updateUIView(_ uiView: SKView, context: Context) {}
 }
 
-
-
 struct HomeScreen: View {
+    
     @StateObject var quoteViewModel = QuoteViewModel()
     var body: some View {
         ZStack {
@@ -50,7 +49,7 @@ struct HomeScreen: View {
                     .shadow(color: .white, radius: 4)
                     .lineLimit(8)
                     .font(.custom("Chalkduster", size: 20))
-                    .frame(width: .infinity)
+                    .frame(maxWidth: .infinity)
                     .padding()
                     .background(
                         LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.7), Color.black.opacity(0.7)]),
@@ -59,7 +58,6 @@ struct HomeScreen: View {
                     )
                     .clipShape(RoundedRectangle(cornerRadius: 25.0))
                     .padding(50)
-                    
                 
                 Spacer()
                 
@@ -98,6 +96,17 @@ struct HomeScreen: View {
                 }
                 .buttonStyle(CustomButtonStyle())
                 .padding()
+                
+                // LogOut Button
+                Button(action: {
+                    FireBaseAuth.shared.signOut() // Ruft die SignOut Methode auf
+                }) {
+                    Text("LogOut")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                }
+                .buttonStyle(CustomButtonStyle())
+                .padding(.top, 20)
             }
         }
     }
@@ -108,3 +117,4 @@ struct HomeScreen: View {
         HomeScreen()
     }
 }
+

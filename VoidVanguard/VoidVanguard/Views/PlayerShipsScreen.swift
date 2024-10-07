@@ -10,8 +10,7 @@ import SwiftUI
 struct PlayerShipsScreen: View {
     let playerShips = ["ship_1", "ship_2", "ship_3", "ship_4","ship_5"]
     @State private var selectedShip: String = "ship_1" // Default ship
-    @Environment(\.presentationMode) var presentationMode // For the back action
-
+   
     var body: some View {
         ZStack {
             // Background
