@@ -12,21 +12,19 @@ struct OnboardingScreen: View {
     var body: some View {
         NavigationStack{
             ZStack {
-                // Static background image from the SKSpriteNode scene
                 SpaceBackground()
                     .ignoresSafeArea()
                 
                 VStack {
                     Spacer()
-
-                    // Title
+                    
                     Text("Welcome to Void Vanguard")
                         .font(.custom("Chalkduster", size: 35))
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 5)
                         .padding(.bottom, 20)
                     Spacer()
-                    // Description
+                    
                     Text("Conquer the Galaxy and protect your fleet!")
                         .font(.custom("Chalkduster",size: 35))
                         .foregroundColor(.white)
@@ -35,9 +33,6 @@ struct OnboardingScreen: View {
                         .padding(.horizontal, 40)
                     
                     Spacer()
-                    
-                    // Next or Start Button
-                    
                     
                     NavigationLink(destination: LoginScreen()) {
                         Text("Get Started")

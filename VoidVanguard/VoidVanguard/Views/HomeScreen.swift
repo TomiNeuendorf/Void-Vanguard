@@ -8,12 +8,10 @@ struct SpaceBackground: UIViewRepresentable {
         let scene = SKScene(size: CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
         scene.scaleMode = .resizeFill
         
-        // Static space background
         let background = SKSpriteNode(imageNamed: "Void")
         background.position = CGPoint(x: scene.size.width / 2, y: scene.size.height / 2)
         background.zPosition = -1
         
-        // Adjust the scale to fit the entire screen
         let aspectRatio = background.size.width / background.size.height
         background.size = CGSize(width: scene.size.height * aspectRatio, height: scene.size.height)
         
@@ -30,14 +28,14 @@ struct HomeScreen: View {
     @StateObject var quoteViewModel = QuoteViewModel()
     var body: some View {
         ZStack {
-            // Hintergrundbild
+            
             Image("Void")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
             
             VStack {
-                // Titel
+                
                 Text("Void Vanguard")
                     .font(.custom("Chalkduster", size: 40))
                     .foregroundColor(.white)
@@ -61,7 +59,6 @@ struct HomeScreen: View {
                 
                 Spacer()
                 
-                // Start Game Button
                 NavigationLink(destination: ContentView().navigationBarHidden(true).navigationBarBackButtonHidden(true)) {
                     Text("Start Game")
                         .font(.headline)
@@ -70,7 +67,6 @@ struct HomeScreen: View {
                 .buttonStyle(CustomButtonStyle())
                 .padding(.bottom, 50)
                 
-                // Weitere Buttons
                 HStack {
                     NavigationLink(destination: PlayerShipsScreen()) {
                         Text("Ships")
@@ -97,7 +93,6 @@ struct HomeScreen: View {
                 .buttonStyle(CustomButtonStyle())
                 .padding()
                 
-                // LogOut Button
                 Button(action: {
                     FireBaseAuth.shared.signOut() // Ruft die SignOut Methode auf
                 }) {

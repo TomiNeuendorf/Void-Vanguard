@@ -10,45 +10,34 @@ import SwiftUI
 import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    // Reference to external game state
     var gameState: GameState?
     
-    // Shoot and Explosion soud nodes
     var playerShootSound: AVAudioPlayer?
     var explosionSound: AVAudioPlayer?
     var bossShootSound: AVAudioPlayer?
     
-    // Background nodes
     let background1 = SKSpriteNode(imageNamed: "background5")
     let background2 = SKSpriteNode(imageNamed: "background5")
     
-    // Player and boss nodes
     var player = SKSpriteNode()
     var bossOne = SKSpriteNode()
     var enemy = SKSpriteNode()
     
-    // Fire and enemy timers
     var fireTimer = Timer()
     var enemyTimer = Timer()
     var bossOneFireTimer = Timer()
     
-    // Score and lives
     var score = 0
     var scoreLabel = SKLabelNode()
     var playerLive = [SKSpriteNode]()
     
-    // Boss properties
     var bossOneFire = SKSpriteNode()
     var bossOneLives = 25
     
-    // Upgrade Nodes
     var upgrade: SKSpriteNode?
-    // Default fire rate
     var originalFireRate: TimeInterval = 0.5
-    // Fire rate during boost
     var boostedFireRate: TimeInterval = 0.2
     
-    // Category Bitmask Definitions
     struct CBitmask {
         static let playerShip: UInt32 = 0b1
         static let playerFire: UInt32 = 0b10
@@ -63,44 +52,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
         
-        // Set scene size
         scene?.size = CGSize(width: 750, height: 1335)
         
-        // Setup background layers
         setupBackground()
         
-        // Create the player
         makePlayer(playerShip: 1)
         
-        // Initialize timers for player firing and enemy spawning
         fireTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(playerFireFunction), userInfo: nil, repeats: true)
         enemyTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(makeEnemy), userInfo: nil, repeats: true)
         
-        // Setup score label
         setupScoreLabel()
         
-        // Add player lives
         addLives(lives: 3)
     }
     
     // MARK: - Background Setup
     
     func setupBackground() {
-        // Configure background1
         background1.position = CGPoint(x: size.width / 2, y: size.height / 2)
         background1.setScale(1.3)
         background1.zPosition = 0
         addChild(background1)
-
-        // Configure background2
+        
         background2.position = CGPoint(x: size.width / 2, y: background1.position.y + background1.size.height)
         background2.setScale(1.3)
         background2.zPosition = 0
         addChild(background2)
-   }
-
+    }
     
-   
+    
+    
     
     override func update(_ currentTime: TimeInterval) {
         moveBackground()
@@ -140,7 +121,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.zPosition = 10
         player.setScale(2)
         
-        // Configure physics body for the player
         player.physicsBody = SKPhysicsBody(rectangleOf: player.size)
         player.physicsBody?.affectedByGravity = false
         player.physicsBody?.isDynamic = true
@@ -149,7 +129,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.physicsBody?.collisionBitMask = CBitmask.enemyShip | CBitmask.bossOneFire
         
         addChild(player)
-
+        
     }
     
     // MARK: - Enemy Setup
@@ -162,7 +142,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemy.zPosition = 5
         enemy.setScale(0.2)
         
-        // Configure physics body for the enemy
         enemy.physicsBody = SKPhysicsBody(rectangleOf: enemy.size)
         enemy.physicsBody?.affectedByGravity = false
         enemy.physicsBody?.categoryBitMask = CBitmask.enemyShip
@@ -171,7 +150,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         addChild(enemy)
         
-        // Define movement actions
         let moveAction = SKAction.moveTo(y: -enemy.size.height, duration: 1.3)
         let removeAction = SKAction.removeFromParent()
         let sequence = SKAction.sequence([moveAction, removeAction])
@@ -187,7 +165,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bossOne.zPosition = 10
         bossOne.setScale(0.4)
         
-        // Configure physics body for the boss
         bossOne.physicsBody = SKPhysicsBody(rectangleOf: bossOne.size)
         bossOne.physicsBody?.affectedByGravity = false
         bossOne.physicsBody?.categoryBitMask = CBitmask.bossOne
@@ -197,7 +174,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(bossOne)
         
         
-        // Define movement actions for the boss
         let moveUp = SKAction.moveTo(y: size.height / 1.3, duration: 2)
         let moveRight = SKAction.moveTo(x: size.width - bossOne.size.width, duration: 2)
         let moveLeft = SKAction.moveTo(x: bossOne.size.width, duration: 2)
@@ -221,7 +197,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         bossFire.setScale(1.5)
         
         
-        // Configure physics body for boss fire
         bossFire.physicsBody = SKPhysicsBody(rectangleOf: bossFire.size)
         bossFire.physicsBody?.affectedByGravity = false
         bossFire.physicsBody?.categoryBitMask = CBitmask.bossOneFire
@@ -230,7 +205,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         addChild(bossFire)
         
-        // Define movement actions for boss fire
         let moveAction = SKAction.moveTo(y: -bossFire.size.height, duration: 1.0)
         let removeAction = SKAction.removeFromParent()
         let sequence = SKAction.sequence([moveAction, removeAction])
@@ -246,10 +220,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         playerFire.position = CGPoint(x: player.position.x, y: player.position.y + player.size.height / 2)
         playerFire.zPosition = 2
         playerFire.setScale(1.5)
-
         
         
-        // Configure physics body for player fire
+        
         playerFire.physicsBody = SKPhysicsBody(rectangleOf: playerFire.size)
         playerFire.physicsBody?.affectedByGravity = false
         playerFire.physicsBody?.categoryBitMask = CBitmask.playerFire
@@ -258,26 +231,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         addChild(playerFire)
         
-        // Define movement actions for player fire
         let moveAction = SKAction.moveTo(y: size.height + playerFire.size.height, duration: 1)
         let removeAction = SKAction.removeFromParent()
         let sequence = SKAction.sequence([moveAction, removeAction])
         
         playerFire.run(sequence)
     }
-   
+    
     // MARK: - Sound Funktion for Player Boss and Explosion
     func playPlayerShootSound() {
-            guard let url = Bundle.main.url(forResource: "shoot", withExtension: "wav") else { return }
-            
-            do {
-                playerShootSound = try AVAudioPlayer(contentsOf: url)
-                playerShootSound?.play()
-                playerShootSound?.volume = 0.070
-            } catch {
-                print("Error Loading shoot sound")
-            }
+        guard let url = Bundle.main.url(forResource: "shoot", withExtension: "wav") else { return }
+        
+        do {
+            playerShootSound = try AVAudioPlayer(contentsOf: url)
+            playerShootSound?.play()
+            playerShootSound?.volume = 0.070
+        } catch {
+            print("Error Loading shoot sound")
         }
+    }
     
     func playBossShootSound(){
         guard let url = Bundle.main.url(forResource: "missile", withExtension: "wav") else { return }
@@ -292,16 +264,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func playExplosionSound() {
-            guard let url = Bundle.main.url(forResource: "explosion", withExtension: "wav") else { return }
-            
-            do {
-                explosionSound = try AVAudioPlayer(contentsOf: url)
-                explosionSound?.play()
-                explosionSound?.volume = 0.070
-            } catch {
-                print("Error loading explosion sound")
-            }
+        guard let url = Bundle.main.url(forResource: "explosion", withExtension: "wav") else { return }
+        
+        do {
+            explosionSound = try AVAudioPlayer(contentsOf: url)
+            explosionSound?.play()
+            explosionSound?.volume = 0.070
+        } catch {
+            print("Error loading explosion sound")
         }
+    }
     
     // MARK: - Lives Setup
     
@@ -339,7 +311,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let contactA: SKPhysicsBody
         let contactB: SKPhysicsBody
         
-        // Sort the contact bodies based on category bitmask
         if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
             contactA = contact.bodyA
             contactB = contact.bodyB
@@ -354,13 +325,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 upgradeNode.removeFromParent()
             }
         }
-
+        
         
         
         
         // MARK: - Contact Scenarios
         
-        // 1. Player ship hits enemy ship
         if contactA.categoryBitMask == CBitmask.playerShip && contactB.categoryBitMask == CBitmask.enemyShip {
             player.run(SKAction.repeat(SKAction.sequence([
                 SKAction.fadeOut(withDuration: 0.1),
@@ -371,7 +341,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             reducePlayerLife()
         }
         
-        // 2. Player fire hits enemy ship
         if contactA.categoryBitMask == CBitmask.playerFire && contactB.categoryBitMask == CBitmask.enemyShip {
             if let fireNode = contactA.node as? SKSpriteNode, let enemyNode = contactB.node as? SKSpriteNode {
                 playerFireHitEnemy(fires: fireNode, enemys: enemyNode)
@@ -387,7 +356,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         }
         
-        // 3. Player fire hits the boss
         if contactA.categoryBitMask == CBitmask.playerFire && contactB.categoryBitMask == CBitmask.bossOne {
             if let fireNode = contactA.node as? SKSpriteNode, let bossNode = contactB.node as? SKSpriteNode {
                 let explosion = SKEmitterNode(fileNamed: "Explosion")
@@ -436,15 +404,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Collision Handlers
     
-    /// Handles the event when player fire hits an enemy ship.
-    /// - Parameters:
-    ///   - fires: The player fire node.
-    ///   - enemys: The enemy ship node.
-   
     func playerFireHitEnemy(fires: SKSpriteNode, enemys: SKSpriteNode) {
         fires.removeFromParent()
         enemys.removeFromParent()
-
+        
         let explosion = SKEmitterNode(fileNamed: "Explosion")
         explosion?.position = enemys.position
         explosion?.zPosition = 5
@@ -452,20 +415,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let explosion = explosion {
             addChild(explosion)
         }
-
+        
         // Random chance to spawn an upgrade (e.g., 5% chance)
         let chance = Int.random(in: 1...100)
-       if chance <= 5 {
-       spawnUpgrade(at: enemys.position)
+        if chance <= 5 {
+            spawnUpgrade(at: enemys.position)
         }
     }
-
+    
     // MARK: - Upgrade Spawning
     func spawnUpgrade(at position: CGPoint) {
         let upgradeType = Int.random(in: 0...1) // Randomly choose an upgrade type (0 for speed, 1 for fire rate)
         let upgrade: SKSpriteNode
-
-        // Create the upgrade node based on the random type
+        
         if upgradeType == 0 {
             upgrade = SKSpriteNode(imageNamed: "speedBoost")
             upgrade.name = "speedUpgrade"
@@ -473,42 +435,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             upgrade = SKSpriteNode(imageNamed: "fireRateBoost")
             upgrade.name = "fireRateUpgrade"
         }
-
+        
         upgrade.position = position
         upgrade.zPosition = 5
         upgrade.setScale(1.5)
-
-        // Set up physics body for the upgrade
+        
         upgrade.physicsBody = SKPhysicsBody(rectangleOf: upgrade.size)
         upgrade.physicsBody?.affectedByGravity = false
         upgrade.physicsBody?.categoryBitMask = CBitmask.upgrade
         upgrade.physicsBody?.contactTestBitMask = CBitmask.playerShip
         upgrade.physicsBody?.collisionBitMask = 0
-
+        
         addChild(upgrade)
-
-        // Spawn an accompanying image (e.g., glow or aura)
+        
         let accompanyingImage = SKSpriteNode(imageNamed: "speedBoost")
         accompanyingImage.position = position
         accompanyingImage.zPosition = 5
         accompanyingImage.setScale(1.5)
         accompanyingImage.alpha = 0.8
-
-        // Set accompanying image to fade out slowly
+        
         let fadeOutAction = SKAction.fadeOut(withDuration: 3.0)
         let removeAccompanyingImageAction = SKAction.removeFromParent()
         let imageSequence = SKAction.sequence([fadeOutAction, removeAccompanyingImageAction])
         accompanyingImage.run(imageSequence)
-
+        
         addChild(accompanyingImage)
-
-        // Make the upgrade move downwards
+        
         let moveAction = SKAction.moveTo(y: -upgrade.size.height, duration: 3.0)
         let removeAction = SKAction.removeFromParent()
         let sequence = SKAction.sequence([moveAction, removeAction])
         upgrade.run(sequence)
     }
-
+    
     // MARK: Apply Upgrade
     
     func applyUpgrade(upgrade: SKSpriteNode, to player: SKSpriteNode) {
@@ -522,7 +480,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             fireTimer.invalidate() // Stop the existing timer
             fireTimer = Timer.scheduledTimer(timeInterval: boostedFireRate, target: self, selector: #selector(playerFireFunction), userInfo: nil, repeats: true)
             
-            // Schedule timer to revert back to normal fire rate after 10 seconds
             Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { [weak self] timer in
                 self?.fireTimer.invalidate()
                 self?.fireTimer = Timer.scheduledTimer(timeInterval: self?.originalFireRate ?? 0.5, target: self!, selector: #selector(self?.playerFireFunction), userInfo: nil, repeats: true)
@@ -531,7 +488,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     // MARK: - Reduce Player Life Function
-    /// Reduces the player's life by removing a heart. If no lives remain, triggers game over.
     func reducePlayerLife() {
         if let live1 = childNode(withName: "live1") {
             live1.removeFromParent()

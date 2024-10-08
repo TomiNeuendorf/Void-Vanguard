@@ -9,17 +9,15 @@ class GameState: ObservableObject {
 }
 
 struct ContentView: View {
-
+    
     @ObservedObject var gameState = GameState() // Using the GameState
     
     var body: some View {
         NavigationView {
             ZStack {
-                // Game Scene (SpriteKit view)
                 SpriteView(scene: configureScene())
                     .ignoresSafeArea()
                 
-                // Game Over overlay
                 if gameState.gameOver {
                     ZStack{
                         Color.myPurple
@@ -52,7 +50,6 @@ struct ContentView: View {
         }
     }
     
-    // Helper function to configure the scene
     func configureScene() -> SKScene {
         let scene = GameScene()
         scene.size = CGSize(width: 750, height: 1335)

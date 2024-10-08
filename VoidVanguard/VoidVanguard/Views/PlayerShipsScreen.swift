@@ -10,10 +10,9 @@ import SwiftUI
 struct PlayerShipsScreen: View {
     let playerShips = ["ship_1", "ship_2", "ship_3", "ship_4","ship_5"]
     @State private var selectedShip: String = "ship_1" // Default ship
-   
+    
     var body: some View {
         ZStack {
-            // Background
             Image("Void") // Replace with your background image name
                 .resizable()
                 .scaledToFill()
@@ -27,8 +26,7 @@ struct PlayerShipsScreen: View {
                     .padding()
                 
                 Spacer()
-
-                // Show all ships in a ScrollView
+                
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(playerShips, id: \.self) { ship in
@@ -39,20 +37,20 @@ struct PlayerShipsScreen: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 100, height: 100)
-                                    .border(selectedShip == ship ? Color.blue : Color.clear, width: 3) // Highlight selected ship
+                                    .border(selectedShip == ship ? Color.blue : Color.clear, width: 3)
                             }
                             .padding()
                         }
                     }
                 }
-
+                
                 // Show the selected ship
                 Image(selectedShip)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)
                     .padding()
-
+                
                 Spacer()
             }
             .foregroundColor(.white) // Text color

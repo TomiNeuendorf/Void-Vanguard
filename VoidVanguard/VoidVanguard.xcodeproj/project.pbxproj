@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9622F2DB2CB3EA00008972C6 /* FirebaseAuthCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 9622F2DA2CB3EA00008972C6 /* FirebaseAuthCombine-Community */; };
 		9622F2DD2CB41D5E008972C6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9622F2DC2CB41D5E008972C6 /* GoogleService-Info.plist */; };
+		9622F2DF2CB522ED008972C6 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 9622F2DE2CB522ED008972C6 /* FirebaseFirestore */; };
+		9622F2E12CB522ED008972C6 /* FirebaseFirestoreCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 9622F2E02CB522ED008972C6 /* FirebaseFirestoreCombine-Community */; };
 		966F42D02CAADD420029F5D0 /* QuoteRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F42CF2CAADD420029F5D0 /* QuoteRepo.swift */; };
 		966F42D32CAADD870029F5D0 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F42D22CAADD870029F5D0 /* Quote.swift */; };
 		966F42D62CABF1360029F5D0 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F42D52CABF1360029F5D0 /* QuoteViewModel.swift */; };
@@ -97,7 +99,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				966F42DF2CB3DA7D0029F5D0 /* FirebaseAnalytics in Frameworks */,
+				9622F2DF2CB522ED008972C6 /* FirebaseFirestore in Frameworks */,
 				9622F2DB2CB3EA00008972C6 /* FirebaseAuthCombine-Community in Frameworks */,
+				9622F2E12CB522ED008972C6 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				966F42E12CB3DA870029F5D0 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,6 +277,8 @@
 				966F42DE2CB3DA7D0029F5D0 /* FirebaseAnalytics */,
 				966F42E02CB3DA870029F5D0 /* FirebaseAuth */,
 				9622F2DA2CB3EA00008972C6 /* FirebaseAuthCombine-Community */,
+				9622F2DE2CB522ED008972C6 /* FirebaseFirestore */,
+				9622F2E02CB522ED008972C6 /* FirebaseFirestoreCombine-Community */,
 			);
 			productName = VoidVanguard;
 			productReference = 96890F972C8EFDC1008330A4 /* VoidVanguard.app */;
@@ -757,6 +763,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 966F42D92CB3D2050029F5D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseAuthCombine-Community";
+		};
+		9622F2DE2CB522ED008972C6 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 966F42D92CB3D2050029F5D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		9622F2E02CB522ED008972C6 /* FirebaseFirestoreCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 966F42D92CB3D2050029F5D0 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreCombine-Community";
 		};
 		966F42DE2CB3DA7D0029F5D0 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;

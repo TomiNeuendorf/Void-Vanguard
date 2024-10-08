@@ -18,21 +18,20 @@ struct LoginScreen: View {
     
     var body: some View {
         ZStack {
-            // Background: same space background as in HomeScreen and Onboarding
             SpaceBackground()
                 .ignoresSafeArea()
             
             VStack {
                 Spacer()
                 
-                // Title
+                
                 Text("Login to Void Vanguard")
                     .font(.custom("Chalkduster", size: 35))
                     .foregroundColor(.white)
                     .shadow(color: .purple, radius: 5)
                     .padding(.bottom, 30)
                 
-                // Email Input Field
+                
                 VStack(alignment: .leading) {
                     Text("Email")
                         .foregroundColor(.white)
@@ -51,7 +50,7 @@ struct LoginScreen: View {
                 }
                 .padding(.bottom, 20)
                 
-                // Password Input Field
+                
                 VStack(alignment: .leading) {
                     Text("Password")
                         .foregroundColor(.white)
@@ -68,56 +67,54 @@ struct LoginScreen: View {
                 }
                 .padding(.bottom, 40)
                 
-                // Login Button
+                
                 Button(action:attemptSignIn) {
-                    // Handle login action
-                        Text("Login")
-                            .font(.headline)
-                            .fontWeight(.bold)
-                            .foregroundColor(.white)
-                            .padding()
-                            .frame(width: 200)
-                            .background(Color.purple)
-                            .cornerRadius(10)
-                            .shadow(color: .purple, radius: 5)
-                    }
-                    .padding(.bottom, 50)
-                    
-                    Spacer()
-                    
-                    // Sign Up option
-                    HStack {
-                        Text("Don't have an account?")
-                            .foregroundColor(.white)
-                        
-                        NavigationLink(destination: RegisterScreen()) {
-                            Text("Sign Up")
-                                .foregroundColor(.purple)
-                                .bold()
-                        }
-                    }
-                    .padding(.bottom, 30)
+                    Text("Login")
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(width: 200)
+                        .background(Color.purple)
+                        .cornerRadius(10)
+                        .shadow(color: .purple, radius: 5)
                 }
-            }
-        }
-        
-        func attemptSignIn() {
-            Task {
-                hasPressedSignIn = true
-                do {
-                    try await FireBaseAuth.shared.signIn(email: email, password: password)
-                } catch {
-                    lastErrorMessage = error.localizedDescription
-                    isPresentingError = true
+                .padding(.bottom, 50)
+                
+                Spacer()
+                
+                HStack {
+                    Text("Don't have an account?")
+                        .foregroundColor(.white)
+                    
+                    NavigationLink(destination: RegisterScreen()) {
+                        Text("Sign Up")
+                            .foregroundColor(.purple)
+                            .bold()
+                    }
                 }
-                hasPressedSignIn = false
+                .padding(.bottom, 30)
             }
         }
     }
     
-    struct LoginScreen_Previews: PreviewProvider {
-        static var previews: some View {
-            LoginScreen()
+    func attemptSignIn() {
+        Task {
+            hasPressedSignIn = true
+            do {
+                try await FireBaseAuth.shared.signIn(email: email, password: password)
+            } catch {
+                lastErrorMessage = error.localizedDescription
+                isPresentingError = true
+            }
+            hasPressedSignIn = false
         }
     }
-    
+}
+
+struct LoginScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        LoginScreen()
+    }
+}
+

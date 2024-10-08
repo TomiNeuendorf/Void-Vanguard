@@ -14,7 +14,7 @@ class QuoteRepo {
         guard let apiKey = ProcessInfo.processInfo.environment[envKey] else {
             throw QuoteAPIError.missingAPIKey(envKey: envKey)
         }
-
+        
         let urlString = "https://api.api-ninjas.com/v1/quotes?category=funny"
         guard let url = URL(string: urlString) else {
             throw QuoteAPIError.invalidURL(url: urlString)
@@ -24,9 +24,9 @@ class QuoteRepo {
         urlRequest.httpMethod = "GET"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.setValue(apiKey, forHTTPHeaderField: "X-Api-Key")
-
+        
         let (data, response) = try await URLSession.shared.data(for: urlRequest)
-
+        
         guard let httpUrlResponse = response as? HTTPURLResponse else {
             throw QuoteAPIError.responseTypecastingError(response: response)
         }
@@ -34,7 +34,7 @@ class QuoteRepo {
         guard case 200...299 = httpUrlResponse.statusCode else {
             throw QuoteAPIError.httpErrorCode(code: httpUrlResponse.statusCode)
         }
-            
+        
         let qoutes = try JSONDecoder().decode([Quote].self, from: data).first
         guard let qoute = qoutes else{
             throw QuoteAPIError.decodeError
@@ -42,7 +42,7 @@ class QuoteRepo {
         return qoute
     }
     
-
+    
 }
 
 

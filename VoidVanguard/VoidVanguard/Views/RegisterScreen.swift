@@ -18,21 +18,19 @@ struct RegisterScreen: View {
     
     var body: some View {
         ZStack {
-            // Background: same space background as other screens
+            
             SpaceBackground()
                 .ignoresSafeArea()
             
             VStack {
                 Spacer()
                 
-                // Title
                 Text("Register for Void Vanguard")
                     .font(.custom("Chalkduster", size: 35))
                     .foregroundColor(.white)
                     .shadow(color: .purple, radius: 5)
                     .padding(.bottom, 30)
                 
-                // Email Input Field
                 VStack(alignment: .leading) {
                     Text("Email")
                         .foregroundColor(.white)
@@ -51,7 +49,6 @@ struct RegisterScreen: View {
                 }
                 .padding(.bottom, 20)
                 
-                // Password Input Field
                 VStack(alignment: .leading) {
                     Text("Password")
                         .foregroundColor(.white)
@@ -68,7 +65,6 @@ struct RegisterScreen: View {
                 }
                 .padding(.bottom, 20)
                 
-                // Confirm Password Input Field
                 VStack(alignment: .leading) {
                     Text("Confirm Password")
                         .foregroundColor(.white)
@@ -85,7 +81,6 @@ struct RegisterScreen: View {
                 }
                 .padding(.bottom, 40)
                 
-                // Register Button
                 Button(action: {
                     if password == confirmPassword {
                         Task {
@@ -113,7 +108,6 @@ struct RegisterScreen: View {
                 
                 Spacer()
                 
-                // Login option for already registered users
                 HStack {
                     Text("Already have an account?")
                         .foregroundColor(.white)

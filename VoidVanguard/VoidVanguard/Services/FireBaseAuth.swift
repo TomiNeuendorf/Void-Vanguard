@@ -12,7 +12,7 @@ import FirebaseAuth
 class FireBaseAuth {
     
     static let shared = FireBaseAuth()
-   
+    
     var user: User?
     
     var isUserSignedIn: Bool {
