@@ -508,5 +508,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func gameOverFunc() {
         removeAllChildren()
         gameState?.gameOver = true // Notify SwiftUI that the game is over
+        gameState?.score = score
     }
 }

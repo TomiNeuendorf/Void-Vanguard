@@ -26,82 +26,85 @@ struct SpaceBackground: UIViewRepresentable {
 struct HomeScreen: View {
     
     @StateObject var quoteViewModel = QuoteViewModel()
+    
     var body: some View {
-        ZStack {
-            
-            Image("Void")
-                .resizable()
-                .scaledToFill()
-                .ignoresSafeArea()
-            
-            VStack {
+        NavigationStack{
+            ZStack {
                 
-                Text("Void Vanguard")
-                    .font(.custom("Chalkduster", size: 40))
-                    .foregroundColor(.white)
-                    .shadow(color: .purple, radius: 5)
-                    .padding()
+                Image("Void")
+                    .resizable()
+                    .scaledToFill()
+                    .ignoresSafeArea()
                 
-                Text(quoteViewModel.quotes.quote)
-                    .foregroundColor(.white)
-                    .shadow(color: .white, radius: 4)
-                    .lineLimit(8)
-                    .font(.custom("Chalkduster", size: 20))
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(
-                        LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.7), Color.black.opacity(0.7)]),
-                                       startPoint: .topLeading,
-                                       endPoint: .bottomTrailing)
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                    .padding(50)
-                
-                Spacer()
-                
-                NavigationLink(destination: ContentView().navigationBarHidden(true).navigationBarBackButtonHidden(true)) {
-                    Text("Start Game")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                }
-                .buttonStyle(CustomButtonStyle())
-                .padding(.bottom, 50)
-                
-                HStack {
-                    NavigationLink(destination: PlayerShipsScreen()) {
-                        Text("Ships")
+                VStack {
+                    
+                    Text("Void Vanguard")
+                        .font(.custom("Chalkduster", size: 40))
+                        .foregroundColor(.white)
+                        .shadow(color: .purple, radius: 5)
+                        .padding()
+                    
+                    Text(quoteViewModel.quotes.quote)
+                        .foregroundColor(.white)
+                        .shadow(color: .white, radius: 4)
+                        .lineLimit(8)
+                        .font(.custom("Chalkduster", size: 20))
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(
+                            LinearGradient(gradient: Gradient(colors: [Color.black.opacity(0.7), Color.black.opacity(0.7)]),
+                                           startPoint: .topLeading,
+                                           endPoint: .bottomTrailing)
+                        )
+                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                        .padding(50)
+                    
+                    Spacer()
+                    
+                    NavigationLink(destination: ContentView().navigationBarHidden(true).navigationBarBackButtonHidden(true)) {
+                        Text("Start Game")
                             .font(.headline)
                             .fontWeight(.bold)
                     }
                     .buttonStyle(CustomButtonStyle())
-                    .padding()
+                    .padding(.bottom, 50)
                     
-                    NavigationLink(destination: HighScoreScreen()) {
-                        Text("High-Score")
-                            .font(.headline)
-                            .fontWeight(.bold)
+                    HStack {
+                        NavigationLink(destination: PlayerShipsScreen()) {
+                            Text("Ships")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                        }
+                        .buttonStyle(CustomButtonStyle())
+                        .padding()
+                        
+                        NavigationLink(destination: HighScoreScreen()) {
+                            Text("High-Score")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                        }
+                        .buttonStyle(CustomButtonStyle())
+                        .padding()
+                        
+                        NavigationLink(destination: SettingsScreen()) {
+                            Text("Settings")
+                                .font(.headline)
+                                .fontWeight(.bold)
+                        }
                     }
                     .buttonStyle(CustomButtonStyle())
                     .padding()
                     
-                    NavigationLink(destination: SettingsScreen()) {
-                        Text("Settings")
+                    Button(action: {
+                        FireBaseAuth.shared.signOut() // Ruft die SignOut Methode auf
+                    }) {
+                        Text("LogOut")
                             .font(.headline)
                             .fontWeight(.bold)
                     }
+                    .buttonStyle(CustomButtonStyle())
+                    .padding(.top, 20)
                 }
-                .buttonStyle(CustomButtonStyle())
-                .padding()
-                
-                Button(action: {
-                    FireBaseAuth.shared.signOut() // Ruft die SignOut Methode auf
-                }) {
-                    Text("LogOut")
-                        .font(.headline)
-                        .fontWeight(.bold)
-                }
-                .buttonStyle(CustomButtonStyle())
-                .padding(.top, 20)
             }
         }
     }

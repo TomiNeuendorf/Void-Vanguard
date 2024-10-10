@@ -15,7 +15,7 @@ class QuoteRepo {
             throw QuoteAPIError.missingAPIKey(envKey: envKey)
         }
         
-        let urlString = "https://api.api-ninjas.com/v1/quotes?category=funny"
+        let urlString = "https://api.api-ninjas.com/v1/quotes?category=inspirational"
         guard let url = URL(string: urlString) else {
             throw QuoteAPIError.invalidURL(url: urlString)
         }
