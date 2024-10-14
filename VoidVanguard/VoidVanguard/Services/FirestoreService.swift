@@ -30,4 +30,20 @@ class FirestoreService {
             try? document.data(as: HighScore.self)
         }
     }
+    
+    func loadSelectedShip() async throws -> String? {
+        let db = Firestore.firestore()
+        guard let userId = FireBaseAuth.shared.user?.uid else {
+            throw NSError(domain: "", code: 401, userInfo: [NSLocalizedDescriptionKey: "User ist nicht angemeldet."])
+        }
+        
+        let document = try await db.collection("users").document(userId).getDocument()
+        if document.exists, let data = document.data(), let selectedShip = data["selectedShip"] as? String {
+           print(selectedShip)
+            return selectedShip
+        } else {
+            return nil // Falls kein Schiff gesetzt ist
+        }
+    }
+
 }

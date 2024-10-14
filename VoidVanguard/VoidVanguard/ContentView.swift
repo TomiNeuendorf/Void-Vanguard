@@ -29,7 +29,7 @@ struct ContentView: View {
                     .ignoresSafeArea()
                 
                 if gameState.gameOver {
-                    ZStack{
+                    ZStack {
                         Color.myPurple
                             .ignoresSafeArea()
                         Image("GameOver")
@@ -40,13 +40,20 @@ struct ContentView: View {
                             Spacer()
                             Button {
                                 sheet.toggle()
-                            }label: {
+                            } label: {
                                 Text("Save your HighScore")
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.white)
+                                    .padding()
+                                    .background(Color.blue)
+                                    .cornerRadius(10)
+                                    .shadow(radius: 10)
                             }
                             Button {
                                 gameState.gameOver = false
                                 dismiss()
-                            }label: {
+                            } label: {
                                 Text("Back To Start")
                                     .font(.headline)
                                     .fontWeight(.bold)
@@ -57,16 +64,37 @@ struct ContentView: View {
                                     .shadow(radius: 10)
                             }
                         }
-                    }.sheet(isPresented: $sheet, content: {
-                        TextField("Enter your Username",text: $userName)
-                        Button {
-                            attemptSaveHighScore()
-                            gameState.gameOver = false
-                            dismiss()
-                        }label: {
-                            Text("Save")
+                    }
+                    .sheet(isPresented: $sheet) {
+                        ZStack {
+                            Color.myPurple // Hintergrundfarbe auf myPurple gesetzt
+                                .ignoresSafeArea()
+                            VStack(spacing: 20) {
+                                Text("Enter your Username")
+                                    .font(.headline)
+                                    .foregroundColor(.white)
+                                
+                                TextField("Username", text: $userName)
+                                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                                    .padding()
+                                    .background(Color.white.opacity(0.2))
+                                    .cornerRadius(10)
+                                    .padding(.horizontal)
+                                
+                                Button {
+                                    attemptSaveHighScore()
+                                    gameState.gameOver = false
+                                    dismiss()
+                                } label: {
+                                    Text("Save")
+                                }
+                                .buttonStyle(CustomButtonStyle())
+                            }
+                            .padding()
+                            .cornerRadius(20)
+                            .padding(.horizontal)
                         }
-                    })
+                    }
                 }
             }
         }
@@ -80,19 +108,13 @@ struct ContentView: View {
         return scene
     }
     
-    func attemptSaveHighScore () {
-
-        Task{
-            await viewModel.createHighscore(username:userName,score: gameState.score)
+    func attemptSaveHighScore() {
+        Task {
+            await viewModel.createHighscore(username: userName, score: gameState.score)
         }
     }
-    
-  
-    
 }
 
 #Preview {
     ContentView()
-    
 }
-

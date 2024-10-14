@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseFirestore
 
 struct PlayerShipsScreen: View {
     let playerShips = ["ship_1", "ship_2", "ship_3", "ship_4","ship_5"]
@@ -50,10 +51,31 @@ struct PlayerShipsScreen: View {
                     .scaledToFit()
                     .frame(width: 200, height: 200)
                     .padding()
+                    
+                Button {
+                    saveSelectedShip(ship: selectedShip)
+                }label: {
+                    Text("Save")
+                }
+                .buttonStyle(CustomButtonStyle())
                 
                 Spacer()
             }
             .foregroundColor(.white) // Text color
+        }
+    }
+    
+    func saveSelectedShip(ship: String) {
+        let db = Firestore.firestore()
+        guard let userId = FireBaseAuth.shared.user?.uid else {
+            return
+        }
+        db.collection("users").document(userId).setData(["selectedShip": ship], merge: true) { error in
+            if let error = error {
+                print("Fehler beim Speichern des Schiffs: \(error.localizedDescription)")
+            } else {
+                print("Schiff erfolgreich gespeichert.")
+            }
         }
     }
 }

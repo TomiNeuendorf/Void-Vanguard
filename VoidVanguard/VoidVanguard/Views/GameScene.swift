@@ -8,6 +8,9 @@ import SpriteKit
 import GameKit
 import SwiftUI
 import AVFoundation
+import FirebaseFirestore
+import FirebaseAuth
+
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameState: GameState?
@@ -16,8 +19,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var explosionSound: AVAudioPlayer?
     var bossShootSound: AVAudioPlayer?
     
-    let background1 = SKSpriteNode(imageNamed: "background5")
-    let background2 = SKSpriteNode(imageNamed: "background5")
+    let background1 = SKSpriteNode(imageNamed: "space")
+    let background2 = SKSpriteNode(imageNamed: "space")
     
     var player = SKSpriteNode()
     var bossOne = SKSpriteNode()
@@ -51,12 +54,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
-        
         scene?.size = CGSize(width: 750, height: 1335)
         
         setupBackground()
         
-        makePlayer(playerShip: 1)
+        // Spieler-Schiff aus Firebase laden und dann erstellen
+        Task {
+            do {
+                if let selectedShipString = try await FirestoreService.shared.loadSelectedShip() {
+                   makePlayer(playerShip: selectedShipString)
+                } else {
+                    print("Kein Schiff geladen. Verwende Standardschiff.")
+                    makePlayer(playerShip: "ship_1") // Standard-Schiff
+                }
+            } catch {
+                print("Fehler beim Laden des Schiffs: \(error)")
+                makePlayer(playerShip: "ship_1") // Standard-Schiff im Fehlerfall
+            }
+        }
         
         fireTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(playerFireFunction), userInfo: nil, repeats: true)
         enemyTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(makeEnemy), userInfo: nil, repeats: true)
@@ -65,6 +80,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         addLives(lives: 3)
     }
+
+   
     
     // MARK: - Background Setup
     
@@ -72,6 +89,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background1.position = CGPoint(x: size.width / 2, y: size.height / 2)
         background1.setScale(1.3)
         background1.zPosition = 0
+        
         addChild(background1)
         
         background2.position = CGPoint(x: size.width / 2, y: background1.position.y + background1.size.height)
@@ -114,9 +132,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Player Setup
     
-    func makePlayer(playerShip: Int) {
-        let shipName = "ship_\(playerShip)"
-        player = SKSpriteNode(imageNamed: shipName)
+    func makePlayer(playerShip: String) {
+        player = SKSpriteNode(imageNamed: playerShip)
         player.position = CGPoint(x: size.width / 2, y: 120)
         player.zPosition = 10
         player.setScale(2)
@@ -347,7 +364,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 playExplosionSound()
                 updateScore()
                 
-                // Trigger boss appearance at score 200
+               
                 if score == 200 {
                     makeBossOne()
                     enemyTimer.invalidate()

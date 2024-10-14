@@ -27,6 +27,12 @@ struct HomeScreen: View {
     
     @StateObject var quoteViewModel = QuoteViewModel()
     
+    init() {
+        Task {
+            try await FirestoreService.shared.loadSelectedShip()
+        }
+    }
+    
     var body: some View {
         NavigationStack{
             ZStack {
