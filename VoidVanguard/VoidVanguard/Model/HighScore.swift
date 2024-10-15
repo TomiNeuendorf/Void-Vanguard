@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct HighScore: Identifiable, Codable, Hashable {
-    var id = UUID()
-    var userID : String
+    @DocumentID var id: String?
+    var userID: String
     var username: String
     var score: Int
 }

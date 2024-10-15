@@ -9,7 +9,7 @@ import Foundation
 import Observation
 
 @Observable
-class HighScoreViewModel {
+class HighScoreViewModel: ObservableObject {
     var highscores : [HighScore] = []
     
    
@@ -36,5 +36,22 @@ class HighScoreViewModel {
         }
       }
     
-}
+    func deleteHighscore(score: HighScore) async {
+           guard let documentID = score.id else {
+               print("Fehler: Kein documentID vorhanden.")
+               return
+           }
+
+           do {
+               try await FirestoreService.shared.deleteHighscore(highscoreID: documentID)
+               
+               // Nach erfolgreichem Löschen in Firebase auch lokal entfernen
+               DispatchQueue.main.async {
+                   self.highscores.removeAll { $0.id == score.id }
+               }
+           } catch {
+               print("Fehler beim Löschen des Highscores: \(error.localizedDescription)")
+           }
+       }
+   }
 

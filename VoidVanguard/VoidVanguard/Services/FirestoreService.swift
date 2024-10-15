@@ -12,17 +12,26 @@ import FirebaseFirestore
 class FirestoreService {
     static let shared = FirestoreService()
     
-    func saveHighScore(username: String,score : Int) async throws {
+    func saveHighScore(username: String, score: Int) async throws {
         guard let userId = FireBaseAuth.shared.user?.uid else {
             return
         }
-        let highScore = HighScore(userID: userId,username: username, score: score)
+        
+      
+        let highScoreID = UUID().uuidString //
+        let highScore = HighScore(id:highScoreID, userID: userId, username: username, score: score)
+        
+        
         do {
-            try Firestore.firestore().collection("Scores").document().setData(from: highScore)
+            try Firestore.firestore()
+                .collection("Scores")
+                .document(highScoreID)
+                .setData(from: highScore)
         } catch {
             print("Error saving Score")
         }
     }
+
     
     func fetchScores() async throws -> [HighScore] {
         let snapshot = try await Firestore.firestore().collection("Scores").getDocuments()
@@ -42,8 +51,33 @@ class FirestoreService {
            print(selectedShip)
             return selectedShip
         } else {
-            return nil // Falls kein Schiff gesetzt ist
+            return nil 
         }
     }
+    
+    func deleteHighscore(highscoreID: String) async throws {
+          let db = Firestore.firestore()
+          
+          do {
+              try await db.collection("Scores").document(highscoreID).delete()
+              print("Highscore erfolgreich gelöscht.")
+          } catch {
+              print("Fehler beim Löschen des Highscores: \(error.localizedDescription)")
+              throw error
+          }
+      }
+  }
 
+
+enum DataError: LocalizedError {
+  case failedSaving
+  case noDocumentID
+  var errorDescription: String {
+    switch self {
+    case .failedSaving:
+      "Could not persist the item"
+    case .noDocumentID:
+      "Didn't find a document ID"
+    }
+  }
 }
