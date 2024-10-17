@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseAuth
 
 struct LoginScreen: View {
     @State private var email =  ""
@@ -14,7 +15,7 @@ struct LoginScreen: View {
     @State private var hasPressedSignIn = false
     @State private var isPresentingError = false
     @State private var lastErrorMessage = ""
-    
+    @State private var showAlert = false
     
     var body: some View {
         ZStack {
@@ -24,13 +25,11 @@ struct LoginScreen: View {
             VStack {
                 Spacer()
                 
-                
                 Text("Login to Void Vanguard")
                     .font(.custom("Chalkduster", size: 35))
                     .foregroundColor(.white)
                     .shadow(color: .purple, radius: 5)
                     .padding(.bottom, 30)
-                
                 
                 VStack(alignment: .leading) {
                     Text("Email")
@@ -50,7 +49,6 @@ struct LoginScreen: View {
                 }
                 .padding(.bottom, 20)
                 
-                
                 VStack(alignment: .leading) {
                     Text("Password")
                         .foregroundColor(.white)
@@ -67,8 +65,7 @@ struct LoginScreen: View {
                 }
                 .padding(.bottom, 40)
                 
-                
-                Button(action:attemptSignIn) {
+                Button(action: attemptSignIn) {
                     Text("Login")
                         .font(.headline)
                         .fontWeight(.bold)
@@ -80,6 +77,13 @@ struct LoginScreen: View {
                         .shadow(color: .purple, radius: 5)
                 }
                 .padding(.bottom, 50)
+                .alert(isPresented: $showAlert) {
+                    Alert(
+                        title: Text("Login Failed"),
+                        message: Text(lastErrorMessage),
+                        dismissButton: .default(Text("OK"))
+                    )
+                }
                 
                 Spacer()
                 
@@ -103,9 +107,23 @@ struct LoginScreen: View {
             hasPressedSignIn = true
             do {
                 try await FireBaseAuth.shared.signIn(email: email, password: password)
-            } catch {
-                lastErrorMessage = error.localizedDescription
-                isPresentingError = true
+            } catch let error as NSError {
+                // Spezifische Fehlermeldungen basierend auf Firebase Fehlercodes
+                switch error.code {
+                case AuthErrorCode.invalidEmail.rawValue:
+                    lastErrorMessage = "The email address is badly formatted."
+                case AuthErrorCode.wrongPassword.rawValue:
+                    lastErrorMessage = "The password is incorrect."
+                case AuthErrorCode.userNotFound.rawValue:
+                    lastErrorMessage = "No user found with this email."
+                case AuthErrorCode.networkError.rawValue:
+                    lastErrorMessage = "Network error. Please try again."
+                case AuthErrorCode.userDisabled.rawValue:
+                    lastErrorMessage = "This account has been disabled."
+                default:
+                    lastErrorMessage = "Email or Password incorrect "
+                }
+                showAlert = true
             }
             hasPressedSignIn = false
         }
@@ -117,4 +135,3 @@ struct LoginScreen_Previews: PreviewProvider {
         LoginScreen()
     }
 }
-
