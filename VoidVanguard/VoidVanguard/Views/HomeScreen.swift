@@ -45,16 +45,16 @@ struct HomeScreen: View {
                 VStack {
                     
                     Text("Void Vanguard")
-                        .font(.custom("Chalkduster", size: 40))
+                        .font(.custom("PressStart2P-Regular", size: 40))
                         .foregroundColor(.white)
                         .shadow(color: .purple, radius: 5)
                         .padding()
                     
                     Text(quoteViewModel.quotes.quote)
                         .foregroundColor(.white)
-                        .shadow(color: .white, radius: 4)
+                        .shadow(color: .purple, radius: 4)
                         .lineLimit(8)
-                        .font(.custom("Chalkduster", size: 20))
+                        .font(.custom("PressStart2P-Regular", size: 20))
                         .frame(maxWidth: .infinity)
                         .padding()
                         .background(

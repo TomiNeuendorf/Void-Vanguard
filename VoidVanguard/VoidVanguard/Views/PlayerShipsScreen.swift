@@ -21,7 +21,7 @@ struct PlayerShipsScreen: View {
             
             VStack {
                 Text("Choose Your Ship")
-                    .font(.custom("Chalkduster", size: 35))
+                    .font(.custom("PressStart2P-Regular", size: 35))
                     .foregroundColor(.white)
                     .shadow(color: .purple, radius: 5)
                     .padding()
@@ -46,12 +46,16 @@ struct PlayerShipsScreen: View {
                 }
                 
                 // Show the selected ship
+                Spacer()
+                
                 Image(selectedShip)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 200, height: 200)
                     .padding()
-                    
+               
+                Spacer()
+                
                 Button {
                     saveSelectedShip(ship: selectedShip)
                 }label: {

@@ -26,7 +26,7 @@ struct LoginScreen: View {
                 Spacer()
                 
                 Text("Login to Void Vanguard")
-                    .font(.custom("Chalkduster", size: 35))
+                    .font(.custom("PressStart2P-Regular", size: 35))
                     .foregroundColor(.white)
                     .shadow(color: .purple, radius: 5)
                     .padding(.bottom, 30)

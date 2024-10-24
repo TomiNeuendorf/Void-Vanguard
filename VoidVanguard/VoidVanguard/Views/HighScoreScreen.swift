@@ -19,8 +19,8 @@ struct HighScoreScreen: View {
             VStack {
                 Spacer()
 
-                Text("High Scores")
-                    .font(.custom("Chalkduster", size: 35))
+                Text("High_Scores")
+                    .font(.custom("PressStart2P-Regular", size: 35))
                     .foregroundColor(.white)
                     .shadow(color: .purple, radius: 5)
                     .padding(.bottom, 20)

@@ -14,6 +14,7 @@
 		9622F2E32CB7C137008972C6 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622F2E22CB7C137008972C6 /* FirestoreService.swift */; };
 		9622F2E52CB7CBBF008972C6 /* HighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622F2E42CB7CBBF008972C6 /* HighScore.swift */; };
 		9622F2E72CB7D60E008972C6 /* HighScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9622F2E62CB7D60E008972C6 /* HighScoreViewModel.swift */; };
+		9622F2E92CCA4F50008972C6 /* PressStart2P-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9622F2E82CCA4A32008972C6 /* PressStart2P-Regular.ttf */; };
 		966F42D02CAADD420029F5D0 /* QuoteRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F42CF2CAADD420029F5D0 /* QuoteRepo.swift */; };
 		966F42D32CAADD870029F5D0 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F42D22CAADD870029F5D0 /* Quote.swift */; };
 		966F42D62CABF1360029F5D0 /* QuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 966F42D52CABF1360029F5D0 /* QuoteViewModel.swift */; };
@@ -66,6 +67,7 @@
 		9622F2E22CB7C137008972C6 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		9622F2E42CB7CBBF008972C6 /* HighScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScore.swift; sourceTree = "<group>"; };
 		9622F2E62CB7D60E008972C6 /* HighScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewModel.swift; sourceTree = "<group>"; };
+		9622F2E82CCA4A32008972C6 /* PressStart2P-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PressStart2P-Regular.ttf"; sourceTree = "<group>"; };
 		966F42CB2CAAAD360029F5D0 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
 		966F42CF2CAADD420029F5D0 /* QuoteRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteRepo.swift; sourceTree = "<group>"; };
 		966F42D22CAADD870029F5D0 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			children = (
 				966F42CB2CAAAD360029F5D0 /* .gitignore */,
 				968414212C90505600D25FA0 /* Assets.xcassets */,
+				9622F2E82CCA4A32008972C6 /* PressStart2P-Regular.ttf */,
 				96E00B6B2CA2A044004257CD /* missile.wav */,
 				96E00B672CA183F0004257CD /* explosion.wav */,
 				96E00B652CA17CFC004257CD /* shoot.wav */,
@@ -386,6 +389,7 @@
 				96E00B682CA183F0004257CD /* explosion.wav in Resources */,
 				968414222C90505600D25FA0 /* Explosion.sks in Resources */,
 				968414232C90505600D25FA0 /* Assets.xcassets in Resources */,
+				9622F2E92CCA4F50008972C6 /* PressStart2P-Regular.ttf in Resources */,
 				96890F9F2C8EFDC2008330A4 /* Assets.xcassets in Resources */,
 				96E00B6C2CA2A044004257CD /* missile.wav in Resources */,
 				96890FC62C8EFE1F008330A4 /* Void Vanguard .png in Resources */,
