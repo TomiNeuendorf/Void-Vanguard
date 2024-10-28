@@ -7,7 +7,7 @@ struct SettingsScreen: View {
     @State private var selectedImage: UIImage?
     
     @State private var newEmail: String = ""
-    @State private var currentEmail: String = ""  // Aktuelle E-Mail-Adresse
+    @State private var currentEmail: String = ""
     @State private var showAlert = false
     @State private var alertMessage = ""
     
@@ -34,9 +34,9 @@ struct SettingsScreen: View {
                 
                 Spacer()
                 
-                // Anzeige der aktuellen E-Mail-Adresse in einer Box
+                
                 VStack(alignment: .leading) {
-                Text(currentEmail)
+                    Text(currentEmail)
                         .padding()
                         .background(Color.white.opacity(0.8))
                         .shadow(color: .myPurple, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/)
@@ -46,7 +46,7 @@ struct SettingsScreen: View {
                 }
                 .padding(.bottom, 20)
                 
-                // Eingabefeld für neue E-Mail
+                
                 TextField("Enter new email", text: $newEmail)
                     .padding()
                     .background(Color.white)
@@ -55,7 +55,7 @@ struct SettingsScreen: View {
                     .textFieldStyle(RoundedBorderTextFieldStyle())
                     .padding(.horizontal, 40)
                 
-                // Button zum Ändern der E-Mail
+                
                 Button(action: {
                     Task {
                         do {
@@ -84,7 +84,7 @@ struct SettingsScreen: View {
         }
     }
     
-    // Funktion zum Abrufen der aktuellen E-Mail-Adresse
+    
     func loadCurrentEmail() {
         if let user = Auth.auth().currentUser {
             currentEmail = user.email ?? "No email found"

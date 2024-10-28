@@ -58,18 +58,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         setupBackground()
         
-        // Spieler-Schiff aus Firebase laden und dann erstellen
+        
         Task {
             do {
                 if let selectedShipString = try await FirestoreService.shared.loadSelectedShip() {
-                   makePlayer(playerShip: selectedShipString)
+                    makePlayer(playerShip: selectedShipString)
                 } else {
                     print("Kein Schiff geladen. Verwende Standardschiff.")
-                    makePlayer(playerShip: "ship_1") // Standard-Schiff
+                    makePlayer(playerShip: "ship_1")
                 }
             } catch {
                 print("Fehler beim Laden des Schiffs: \(error)")
-                makePlayer(playerShip: "ship_1") // Standard-Schiff im Fehlerfall
+                makePlayer(playerShip: "ship_1")
             }
         }
         
@@ -80,8 +80,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         addLives(lives: 3)
     }
-
-   
+    
+    
     
     // MARK: - Background Setup
     
@@ -364,7 +364,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 playExplosionSound()
                 updateScore()
                 
-               
+                
                 if score == 200 {
                     makeBossOne()
                     enemyTimer.invalidate()
@@ -433,7 +433,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             addChild(explosion)
         }
         
-        // Random chance to spawn an upgrade (e.g., 5% chance)
+        
         let chance = Int.random(in: 1...100)
         if chance <= 5 {
             spawnUpgrade(at: enemys.position)
@@ -442,7 +442,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     // MARK: - Upgrade Spawning
     func spawnUpgrade(at position: CGPoint) {
-        let upgradeType = Int.random(in: 0...1) // Randomly choose an upgrade type (0 for speed, 1 for fire rate)
+        let upgradeType = Int.random(in: 0...1)
         let upgrade: SKSpriteNode
         
         if upgradeType == 0 {
@@ -488,13 +488,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func applyUpgrade(upgrade: SKSpriteNode, to player: SKSpriteNode) {
         if upgrade.name == "speedUpgrade" {
-            // Apply speed boost to player (e.g., increasing movement speed or handling)
+            
             print("Speed upgrade applied!")
-            // Implement the speed boost logic here
+            
         } else if upgrade.name == "fireRateUpgrade" {
-            // Apply fire rate boost to player
+            
             print("Fire rate upgrade applied!")
-            fireTimer.invalidate() // Stop the existing timer
+            fireTimer.invalidate()
             fireTimer = Timer.scheduledTimer(timeInterval: boostedFireRate, target: self, selector: #selector(playerFireFunction), userInfo: nil, repeats: true)
             
             Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false) { [weak self] timer in

@@ -17,7 +17,7 @@ class FirestoreService {
             return
         }
         
-      
+        
         let highScoreID = UUID().uuidString //
         let highScore = HighScore(id:highScoreID, userID: userId, username: username, score: score)
         
@@ -31,7 +31,7 @@ class FirestoreService {
             print("Error saving Score")
         }
     }
-
+    
     
     func fetchScores() async throws -> [HighScore] {
         let snapshot = try await Firestore.firestore().collection("Scores").getDocuments()
@@ -48,7 +48,7 @@ class FirestoreService {
         
         let document = try await db.collection("users").document(userId).getDocument()
         if document.exists, let data = document.data(), let selectedShip = data["selectedShip"] as? String {
-           print(selectedShip)
+            print(selectedShip)
             return selectedShip
         } else {
             return nil 
@@ -56,28 +56,28 @@ class FirestoreService {
     }
     
     func deleteHighscore(highscoreID: String) async throws {
-          let db = Firestore.firestore()
-          
-          do {
-              try await db.collection("Scores").document(highscoreID).delete()
-              print("Highscore erfolgreich gelöscht.")
-          } catch {
-              print("Fehler beim Löschen des Highscores: \(error.localizedDescription)")
-              throw error
-          }
-      }
-  }
+        let db = Firestore.firestore()
+        
+        do {
+            try await db.collection("Scores").document(highscoreID).delete()
+            print("Highscore erfolgreich gelöscht.")
+        } catch {
+            print("Fehler beim Löschen des Highscores: \(error.localizedDescription)")
+            throw error
+        }
+    }
+}
 
 
 enum DataError: LocalizedError {
-  case failedSaving
-  case noDocumentID
-  var errorDescription: String {
-    switch self {
-    case .failedSaving:
-      "Could not persist the item"
-    case .noDocumentID:
-      "Didn't find a document ID"
+    case failedSaving
+    case noDocumentID
+    var errorDescription: String {
+        switch self {
+        case .failedSaving:
+            "Could not persist the item"
+        case .noDocumentID:
+            "Didn't find a document ID"
+        }
     }
-  }
 }

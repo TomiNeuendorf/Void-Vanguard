@@ -10,11 +10,11 @@ import FirebaseFirestore
 
 struct PlayerShipsScreen: View {
     let playerShips = ["ship_1", "ship_2", "ship_3", "ship_4","ship_5"]
-    @State private var selectedShip: String = "ship_1" // Default ship
+    @State private var selectedShip: String = "ship_1"
     
     var body: some View {
         ZStack {
-            Image("Void") // Replace with your background image name
+            Image("Void")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()
@@ -45,7 +45,7 @@ struct PlayerShipsScreen: View {
                     }
                 }
                 
-                // Show the selected ship
+                
                 Spacer()
                 
                 Image(selectedShip)
@@ -53,7 +53,7 @@ struct PlayerShipsScreen: View {
                     .scaledToFit()
                     .frame(width: 200, height: 200)
                     .padding()
-               
+                
                 Spacer()
                 
                 Button {
@@ -65,7 +65,7 @@ struct PlayerShipsScreen: View {
                 
                 Spacer()
             }
-            .foregroundColor(.white) // Text color
+            .foregroundColor(.white) 
         }
     }
     

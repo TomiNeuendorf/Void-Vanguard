@@ -23,13 +23,13 @@ class FireBaseAuth {
         guard let user = auth.currentUser else {
             throw AuthError.noEmail
         }
-
+        
         
         try await user.sendEmailVerification(beforeUpdatingEmail: newEmail)
         print("Verification email sent for \(newEmail). Please verify the email before proceeding.")
     }
-
-
+    
+    
     
     func signUp(email: String, password: String) async throws {
         let authResult = try await auth.createUser(withEmail: email, password: password)
@@ -57,7 +57,7 @@ class FireBaseAuth {
             }
         }
     }
-
+    
     
     func signOut() {
         do {
