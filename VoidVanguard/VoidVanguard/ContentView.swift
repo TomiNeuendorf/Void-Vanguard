@@ -5,7 +5,6 @@ import Combine
 import Firebase
 import FirebaseFirestore
 
-// New GameState class to manage the gameOver state
 class GameState: ObservableObject {
     @Published var gameOver = false
     @Published var score = 0
@@ -67,7 +66,7 @@ struct ContentView: View {
                     }
                     .sheet(isPresented: $sheet) {
                         ZStack {
-                            Color.myPurple // Hintergrundfarbe auf myPurple gesetzt
+                            Color.myPurple 
                                 .ignoresSafeArea()
                             VStack(spacing: 20) {
                                 Text("Enter your Username")
@@ -104,7 +103,7 @@ struct ContentView: View {
         let scene = GameScene()
         scene.size = CGSize(width: 750, height: 1335)
         scene.scaleMode = .aspectFill
-        scene.gameState = gameState // Link the scene to the game state
+        scene.gameState = gameState
         return scene
     }
     

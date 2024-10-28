@@ -12,7 +12,7 @@ import Observation
 class QuoteViewModel: ObservableObject {
     
     @Published var quotes: Quote = Quote(category: "happyness", quote: "Nothing flatters a man as much as the happiness of his wife he is always proud of himself as the source of it.", author: "Samuel Johnson")
-    var error: String? // Variable für Fehlermeldungen
+    var error: String?
     
     init(){
         load()

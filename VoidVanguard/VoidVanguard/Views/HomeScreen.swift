@@ -102,7 +102,7 @@ struct HomeScreen: View {
                     .padding()
                     
                     Button(action: {
-                        FireBaseAuth.shared.signOut() // Ruft die SignOut Methode auf
+                        FireBaseAuth.shared.signOut()
                     }) {
                         Text("LogOut")
                             .font(.headline)

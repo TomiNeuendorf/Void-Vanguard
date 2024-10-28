@@ -32,7 +32,7 @@ struct PlayerShipsScreen: View {
                     HStack {
                         ForEach(playerShips, id: \.self) { ship in
                             Button(action: {
-                                selectedShip = ship // Change ship
+                                selectedShip = ship 
                             }) {
                                 Image(ship)
                                     .resizable()
