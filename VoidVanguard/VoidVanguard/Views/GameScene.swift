@@ -122,7 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupScoreLabel() {
         scoreLabel.text = "Score: \(score)"
-        scoreLabel.fontName = "Chalkduster"
+        scoreLabel.fontName = "PressStart2P-Regular"
         scoreLabel.fontSize = 30
         scoreLabel.fontColor = .white
         scoreLabel.zPosition = 10
